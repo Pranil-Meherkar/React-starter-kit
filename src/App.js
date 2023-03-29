@@ -1,15 +1,14 @@
-import React from 'react'
-// import FormikContainer from './components/FormikContainer'
+
 import './App.css'
-import RegistrationForm from './components/RegistrationForm'
-// import LoginForm from './components/LoginForm'
+import Navbar from './components/Navbar/Navbar'
+
 
 const App = () => {
+ 
+
   return (
     <div>
-      {/* <FormikContainer/> */}
-      {/* <LoginForm/> */}
-      <RegistrationForm/>
+      <Navbar/>
     </div>
   )
 }

@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    display: flex;
+    width: 100%;
+    height: auto;
+    position: relative;
+    flex-wrap: wrap;
+    background-color: gray;
+}
+nav ul{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: lightgreen;  
+}
+
+.nav-btn{
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #2196F3;
+    color: white;
+    cursor: pointer;
+}
+.elements{
+    width: 70%;
+}
+.buttons{
+    display: flex;
+    width: 30%;
+    
+}

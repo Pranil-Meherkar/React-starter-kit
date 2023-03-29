@@ -3,12 +3,19 @@ import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import FormikControl from './FormikControl'
 import './Formik.css'
+import ReactDOM from 'react-dom'
 
-const RegistrationForm = () => {
+const RegistrationForm = ({openRegi,closeModal,openLogin}) => {
 
-    const options = [
+    if(!openRegi) return null
+
+    const radioOptions = [
         { key: 'Email', value: 'emailmoc' },
         { key: 'Mobile No', value: 'mobmoc' }
+    ]
+    
+    const checkboxOptions = [
+        {key:`I agree all terms and conditions`, value:'accepted'}
     ]
 
     const initialValues = {
@@ -16,7 +23,8 @@ const RegistrationForm = () => {
         password: '',
         confirmPassword: '',
         modeOfContact: '',
-        mobNo: ''
+        mobNo: '',
+        terms:''
     }
 
     const validationSchema = Yup.object({
@@ -27,7 +35,8 @@ const RegistrationForm = () => {
         mobNo: Yup.string().when('modeOfContact', {
             is: 'mobmoc',
             then:()=> Yup.string().required('This field is required...!'),
-        })
+        }),
+        terms: Yup.array().required('This field is required...!')
     })
 
     const onSubmit = (values, onSubmitProps) => {
@@ -35,10 +44,14 @@ const RegistrationForm = () => {
         onSubmitProps.resetForm()
     }
 
-    return (
+    
+
+    return ReactDOM.createPortal(
+        <>
         <div className='main'>
             <div className='form-card'>
-                <h1 className='heading'>Registration Form</h1>
+                <p onClick={closeModal} className='close-btn'><i className="fa-solid fa-xmark fa-lg"></i></p>
+                <h1 className='heading'>Registration</h1>
                 <Formik
                     initialValues={initialValues}
                     validationSchema={validationSchema}
@@ -51,37 +64,49 @@ const RegistrationForm = () => {
                                     control='input'
                                     type='email'
                                     name='email'
-                                    label='Email'
+                                    icon={<i className="fa-solid fa-envelope fa-lg" style={{color:'#2196F3'}}></i>}
+                                    label=' Email'
                                     placeholder='Enter Your Email ID'
                                 />
                                 <FormikControl
                                     control='input'
                                     type='password'
-                                    label='Enter Password'
+                                    icon={<i className="fa-solid fa-key fa-lg" style={{color:'#2196F3'}}></i>}
+                                    label=' Enter Password'
                                     name='password'
                                     placeholder='Enter New Password'
                                 />
                                 <FormikControl
                                     control='input'
                                     type='password'
-                                    label='Confirm Password'
+                                    icon={<i className="fa-solid fa-key fa-lg" style={{color:'#2196F3'}}></i>}
+                                    label=' Confirm Password'
                                     name='confirmPassword'
                                     placeholder='Enter Password Again'
                                 />
                                 <FormikControl
                                     control='radio'
-                                    label='Mode of Contact'
+                                    icon={<i className="fa-solid fa-paper-plane fa-lg" style={{color:'#2196F3'}}></i>}
+                                    label=' Mode of Contact'
                                     name='modeOfContact'
-                                    options={options}
+                                    options={radioOptions}
                                 />
                                 <FormikControl
                                     control='input'
                                     type='text'
+                                    icon={<i className="fa-solid fa-phone fa-lg" style={{color:'#2196F3'}}></i>}
                                     name='mobNo'
-                                    label='Mobile Number'
+                                    label=' Mobile Number'
                                     placeholder='Enter Mobile Number'
                                 />
-                                <button type='submit' disabled={!formik.isValid} className='btn'>Submit</button>
+                                <FormikControl 
+                                    control='checkbox'
+                                    name='terms'
+                                    options={checkboxOptions}
+                                />
+                                <button type='submit' className='btn'>Register</button><br/>
+
+                                <span>Already have an account?</span><span onClick={openLogin} style={{ color: 'blue', cursor: 'pointer' }}>Login</span>
                             </Form>
                         }
                     }
@@ -89,6 +114,9 @@ const RegistrationForm = () => {
                 </Formik>
             </div>
         </div>
+        <div className='overlay'></div>
+        </>,
+        document.getElementById('portal')
     )
 }
 

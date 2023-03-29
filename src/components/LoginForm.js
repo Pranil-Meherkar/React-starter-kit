@@ -3,8 +3,11 @@ import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import FormikControl from './FormikControl'
 import './Formik.css'
+import ReactDOM from 'react-dom'
 
-const LoginForm = () => {
+const LoginForm = ({openLogin,closeModal,openRegi}) => {
+
+    if(!openLogin) return null
 
     const initialValues = {
         email: '',
@@ -21,33 +24,48 @@ const LoginForm = () => {
         onSubmitProps.resetForm()
     }
 
-    return (
-        <Formik
-            initialValues={initialValues}
-            validationSchema={validationSchema}
-            onSubmit={onSubmit}
-        >
-            {
-                formik => {
-                    return <Form>
-                        <FormikControl
-                            control='input'
-                            type='email'
-                            label='Enter Username'
-                            name='email'
-                        />
-                        <FormikControl
-                            control='input'
-                            type='password'
-                            label='Enter Password'
-                            name='password'
-                        />
-                        <button type='submit' disabled={!formik.isValid}>Submit</button>
-                    </Form>
-                }
-            }
+    return ReactDOM.createPortal(
+        <>
+        <div className='main'>
+            <div className='form-card'>
+            <p onClick={closeModal} className='close-btn'><i className="fa-solid fa-xmark fa-lg"></i></p>
+                <h1 className='heading'>Login</h1>
+                <Formik
+                    initialValues={initialValues}
+                    validationSchema={validationSchema}
+                    onSubmit={onSubmit}
+                >
+                    {
+                        formik => {
+                            return <Form>
+                                <FormikControl
+                                    control='input'
+                                    type='email'
+                                    icon={<i className="fa-solid fa-user fa-lg" style={{ color: '#2196F3' }}></i>}
+                                    label=' Enter Username'
+                                    placeholder='Enter Your Username'
+                                    name='email'
+                                />
+                                <FormikControl
+                                    control='input'
+                                    type='password'
+                                    icon={<i className="fa-solid fa-key fa-lg" style={{ color: '#2196F3' }}></i>}
+                                    label=' Enter Password'
+                                    placeholder='Enter Your Password'
+                                    name='password'
+                                />
+                                <button type='submit' className='btn'>Login</button><br />
+                                <span>Don't have an account?</span><span onClick={openRegi} style={{ color: 'blue', cursor: 'pointer' }}>Register</span>
+                            </Form>
+                        }
+                    }
 
-        </Formik>
+                </Formik>
+            </div>
+        </div>
+        <div className='overlay'></div>
+        </>,
+        document.getElementById('portal')
     )
 }
 
