@@ -3,7 +3,7 @@ import { Field, ErrorMessage } from 'formik'
 import TextError from '../TextError'
 import { TextField } from '@mui/material'
 
-const Input = (props) => {
+const Password = (props) => {
     const { label, name, icon, ...rest } = props
     return (
         <div className='form-control'>
@@ -14,10 +14,11 @@ const Input = (props) => {
                         return(
                             <TextField 
                             {...field}
-                            id={name} 
+                            type='password'
+                            id={name}
                             label={label}
-                            variant="standard" 
-                            className='input-field'
+                            variant="standard"
+                            className='input-field' 
                             required
                             />
                         )
@@ -29,4 +30,4 @@ const Input = (props) => {
     )
 }
 
-export default Input
+export default Password
