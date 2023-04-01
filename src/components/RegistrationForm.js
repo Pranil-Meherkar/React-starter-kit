@@ -7,8 +7,11 @@ import { Button } from '@mui/material'
 import { useGoogleLogin } from '@react-oauth/google';
 import GoogleButton from 'react-google-button'
 import axios from 'axios'
+import { useNavigate } from 'react-router'
 
 const RegistrationForm = ({ openRegi, closeModal, openLogin }) => {
+    
+    const navigate = useNavigate()
 
     const login = useGoogleLogin({
         onSuccess: async response => {
@@ -23,7 +26,8 @@ const RegistrationForm = ({ openRegi, closeModal, openLogin }) => {
                 axios.post("http://localhost:8080/users",data.data)
             }
             if(data.data.email_verified===true){
-                openLogin()
+                localStorage.setItem('token',false)
+                navigate('/dashboard')
             }
         }
 

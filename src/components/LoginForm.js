@@ -8,8 +8,11 @@ import { Button } from '@mui/material'
 import { useGoogleLogin } from '@react-oauth/google'
 import axios from 'axios'
 import GoogleButton from 'react-google-button'
+import { useNavigate } from 'react-router'
 
 const LoginForm = ({openLogin,closeModal,openRegi}) => {
+
+    const navigate = useNavigate()
 
     const login = useGoogleLogin({
         onSuccess: async response => {
@@ -19,10 +22,13 @@ const LoginForm = ({openLogin,closeModal,openRegi}) => {
                     "Authorization": `Bearer ${response.access_token}`
                 }
             })
-            console.log(data)
-            if(data.data){
-                axios.post("http://localhost:8080/users",data.data)
-
+            if(data.data.email_verified===true){
+                localStorage.setItem('token',true)
+                navigate('/dashboard')
+                closeModal()   
+            }
+            else{
+                localStorage.setItem('token',false)
             }
         }
 
@@ -49,12 +55,12 @@ const LoginForm = ({openLogin,closeModal,openRegi}) => {
             console.log(resp.data)
             const user = resp.data.find((item)=> item.email===values.email)
             if(user.password===values.password){
-                console.log("Login successful")
-                // direct to dashboard
+                localStorage.setItem("token",true)
+                navigate('/dashboard')
             }
             else{
-                console.log("Login failed")
-                // redirect to login page
+                localStorage.setItem('token',false)
+                navigate('/')
             }
         })
         

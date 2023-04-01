@@ -18,7 +18,7 @@
     "react-dom": "^18.2.0",
     "react-google-button": "^0.7.2",
     "react-router": "^6.9.0",
-    "react-router-dom": "^6.9.0",
+    "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4",
     "yup": "^1.0.2"
@@ -28,7 +28,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "json-server":"json-server --watch db.json --port 8080"
+    "json-server": "json-server --watch db.json --port 8080"
   },
   "eslintConfig": {
     "extends": [
