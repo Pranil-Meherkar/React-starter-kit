@@ -9,11 +9,12 @@ import GoogleButton from 'react-google-button'
 import axios from 'axios'
 import { useNavigate } from 'react-router'
 import { useState } from 'react'
+import Toaster from './shared/Toaster/Toaster'
 
 const RegistrationForm = ({ openRegi, closeModal, openLogin, setIsRegister }) => {
 
     const navigate = useNavigate()
-
+    const [isSuccess, setIsSuccess] = useState(true)
 
 
     const login = useGoogleLogin({
@@ -92,6 +93,7 @@ const RegistrationForm = ({ openRegi, closeModal, openLogin, setIsRegister }) =>
         const postUser = () => {
             axios.post('http://localhost:8080/users', values)
             setIsRegister(true)
+            setIsSuccess(true)
             openLogin()
         }
 
@@ -179,12 +181,15 @@ const RegistrationForm = ({ openRegi, closeModal, openLogin, setIsRegister }) =>
 
                     <GoogleButton onClick={login} className="google-btn" />
 
+
                 </div>
             </div>
-            <div className='overlay'></div>
+            <div className='overlay'>
+            </div>
         </>,
         document.getElementById('portal')
     )
+
 }
 
 export default RegistrationForm

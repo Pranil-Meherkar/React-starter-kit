@@ -6,6 +6,7 @@
 .nav-main{
     position: sticky;
     top: 0;
+    
 }
 .nav{
     display: flex;
@@ -21,6 +22,7 @@
     list-style: none;
     gap: 2rem;
     padding: 1rem .5rem;
+    
 }
 .logo{
     font-size: 2rem;

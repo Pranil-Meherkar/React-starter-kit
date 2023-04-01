@@ -26,7 +26,6 @@ const App = () => {
               <Route path='/dashboard' element={<ProtectedRoutes Component={Dashboard}/>}/>
               <Route path='/test' element={<TestPage/>}/>
               <Route path='*' element={<Error />} />
-              
             </Route>
           </Routes>
         </div>
