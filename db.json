@@ -11,28 +11,6 @@
       "id": 1
     },
     {
-      "sub": "108764215609428202872",
-      "name": "Aditya Titame",
-      "given_name": "Aditya",
-      "family_name": "Titame",
-      "picture": "https://lh3.googleusercontent.com/a/AGNmyxb9BmkFkNuFnl1hS63S7g-u2DCA1ityZmH2QpLz=s96-c",
-      "email": "adityatitame@nimapinfotech.com",
-      "email_verified": true,
-      "locale": "en",
-      "hd": "nimapinfotech.com",
-      "id": 2
-    },
-    {
-      "email": "sonatan11@nimapinfotech.com",
-      "password": "12345",
-      "confirmPassword": "12345",
-      "mobNo": "1234567890",
-      "terms": [
-        "accepted"
-      ],
-      "id": 3
-    },
-    {
       "email": "p@gmail.com",
       "password": "12345",
       "confirmPassword": "12345",
@@ -40,263 +18,41 @@
       "terms": [
         "accepted"
       ],
+      "id": 2
+    },
+    {
+      "email": "sonatan11@nimapinfotech.com",
+      "password": "1234",
+      "confirmPassword": "1234",
+      "mobNo": "1234567890",
+      "terms": [
+        "accepted"
+      ],
+      "id": 3
+    },
+    {
+      "sub": "108764215609428202872",
+      "name": "Aditya Titame",
+      "given_name": "Aditya",
+      "family_name": "Titame",
+      "picture": "https://lh3.googleusercontent.com/a/AGNmyxb9BmkFkNuFnl1hS63S7g-u2DCA1ityZmH2QpLz=s96-c",
+      "email": "adityatitame@nimapinfotech.com",
+      "email_verified": true,
+      "locale": "en",
+      "hd": "nimapinfotech.com",
       "id": 4
     },
     {
+      "sub": "108764215609428202872",
+      "name": "Aditya Titame",
+      "given_name": "Aditya",
+      "family_name": "Titame",
+      "picture": "https://lh3.googleusercontent.com/a/AGNmyxb9BmkFkNuFnl1hS63S7g-u2DCA1ityZmH2QpLz=s96-c",
       "email": "adityatitame@nimapinfotech.com",
-      "password": "12345",
-      "confirmPassword": "12345",
-      "mobNo": "1234567890",
-      "terms": [
-        "accepted"
-      ],
+      "email_verified": true,
+      "locale": "en",
+      "hd": "nimapinfotech.com",
       "id": 5
-    },
-    {
-      "sub": "108764215609428202872",
-      "name": "Aditya Titame",
-      "given_name": "Aditya",
-      "family_name": "Titame",
-      "picture": "https://lh3.googleusercontent.com/a/AGNmyxb9BmkFkNuFnl1hS63S7g-u2DCA1ityZmH2QpLz=s96-c",
-      "email": "adityatitame@nimapinfotech.com",
-      "email_verified": true,
-      "locale": "en",
-      "hd": "nimapinfotech.com",
-      "id": 6
-    },
-    {
-      "sub": "108764215609428202872",
-      "name": "Aditya Titame",
-      "given_name": "Aditya",
-      "family_name": "Titame",
-      "picture": "https://lh3.googleusercontent.com/a/AGNmyxb9BmkFkNuFnl1hS63S7g-u2DCA1ityZmH2QpLz=s96-c",
-      "email": "adityatitame@nimapinfotech.com",
-      "email_verified": true,
-      "locale": "en",
-      "hd": "nimapinfotech.com",
-      "id": 7
-    },
-    {
-      "sub": "108764215609428202872",
-      "name": "Aditya Titame",
-      "given_name": "Aditya",
-      "family_name": "Titame",
-      "picture": "https://lh3.googleusercontent.com/a/AGNmyxb9BmkFkNuFnl1hS63S7g-u2DCA1ityZmH2QpLz=s96-c",
-      "email": "adityatitame@nimapinfotech.com",
-      "email_verified": true,
-      "locale": "en",
-      "hd": "nimapinfotech.com",
-      "id": 8
-    },
-    {
-      "email": "aditya@gmail.com",
-      "password": "12345",
-      "confirmPassword": "12345",
-      "mobNo": "1234567890",
-      "terms": [
-        "accepted"
-      ],
-      "id": 9
-    },
-    {
-      "sub": "108764215609428202872",
-      "name": "Aditya Titame",
-      "given_name": "Aditya",
-      "family_name": "Titame",
-      "picture": "https://lh3.googleusercontent.com/a/AGNmyxb9BmkFkNuFnl1hS63S7g-u2DCA1ityZmH2QpLz=s96-c",
-      "email": "adityatitame@nimapinfotech.com",
-      "email_verified": true,
-      "locale": "en",
-      "hd": "nimapinfotech.com",
-      "id": 10
-    },
-    {
-      "sub": "108764215609428202872",
-      "name": "Aditya Titame",
-      "given_name": "Aditya",
-      "family_name": "Titame",
-      "picture": "https://lh3.googleusercontent.com/a/AGNmyxb9BmkFkNuFnl1hS63S7g-u2DCA1ityZmH2QpLz=s96-c",
-      "email": "adityatitame@nimapinfotech.com",
-      "email_verified": true,
-      "locale": "en",
-      "hd": "nimapinfotech.com",
-      "id": 11
-    },
-    {
-      "sub": "108764215609428202872",
-      "name": "Aditya Titame",
-      "given_name": "Aditya",
-      "family_name": "Titame",
-      "picture": "https://lh3.googleusercontent.com/a/AGNmyxb9BmkFkNuFnl1hS63S7g-u2DCA1ityZmH2QpLz=s96-c",
-      "email": "adityatitame@nimapinfotech.com",
-      "email_verified": true,
-      "locale": "en",
-      "hd": "nimapinfotech.com",
-      "id": 12
-    },
-    {
-      "sub": "108764215609428202872",
-      "name": "Aditya Titame",
-      "given_name": "Aditya",
-      "family_name": "Titame",
-      "picture": "https://lh3.googleusercontent.com/a/AGNmyxb9BmkFkNuFnl1hS63S7g-u2DCA1ityZmH2QpLz=s96-c",
-      "email": "adityatitame@nimapinfotech.com",
-      "email_verified": true,
-      "locale": "en",
-      "hd": "nimapinfotech.com",
-      "id": 13
-    },
-    {
-      "sub": "108764215609428202872",
-      "name": "Aditya Titame",
-      "given_name": "Aditya",
-      "family_name": "Titame",
-      "picture": "https://lh3.googleusercontent.com/a/AGNmyxb9BmkFkNuFnl1hS63S7g-u2DCA1ityZmH2QpLz=s96-c",
-      "email": "adityatitame@nimapinfotech.com",
-      "email_verified": true,
-      "locale": "en",
-      "hd": "nimapinfotech.com",
-      "id": 14
-    },
-    {
-      "sub": "108764215609428202872",
-      "name": "Aditya Titame",
-      "given_name": "Aditya",
-      "family_name": "Titame",
-      "picture": "https://lh3.googleusercontent.com/a/AGNmyxb9BmkFkNuFnl1hS63S7g-u2DCA1ityZmH2QpLz=s96-c",
-      "email": "adityatitame@nimapinfotech.com",
-      "email_verified": true,
-      "locale": "en",
-      "hd": "nimapinfotech.com",
-      "id": 15
-    },
-    {
-      "sub": "108764215609428202872",
-      "name": "Aditya Titame",
-      "given_name": "Aditya",
-      "family_name": "Titame",
-      "picture": "https://lh3.googleusercontent.com/a/AGNmyxb9BmkFkNuFnl1hS63S7g-u2DCA1ityZmH2QpLz=s96-c",
-      "email": "adityatitame@nimapinfotech.com",
-      "email_verified": true,
-      "locale": "en",
-      "hd": "nimapinfotech.com",
-      "id": 16
-    },
-    {
-      "sub": "108764215609428202872",
-      "name": "Aditya Titame",
-      "given_name": "Aditya",
-      "family_name": "Titame",
-      "picture": "https://lh3.googleusercontent.com/a/AGNmyxb9BmkFkNuFnl1hS63S7g-u2DCA1ityZmH2QpLz=s96-c",
-      "email": "adityatitame@nimapinfotech.com",
-      "email_verified": true,
-      "locale": "en",
-      "hd": "nimapinfotech.com",
-      "id": 17
-    },
-    {
-      "sub": "108764215609428202872",
-      "name": "Aditya Titame",
-      "given_name": "Aditya",
-      "family_name": "Titame",
-      "picture": "https://lh3.googleusercontent.com/a/AGNmyxb9BmkFkNuFnl1hS63S7g-u2DCA1ityZmH2QpLz=s96-c",
-      "email": "adityatitame@nimapinfotech.com",
-      "email_verified": true,
-      "locale": "en",
-      "hd": "nimapinfotech.com",
-      "id": 18
-    },
-    {
-      "sub": "108764215609428202872",
-      "name": "Aditya Titame",
-      "given_name": "Aditya",
-      "family_name": "Titame",
-      "picture": "https://lh3.googleusercontent.com/a/AGNmyxb9BmkFkNuFnl1hS63S7g-u2DCA1ityZmH2QpLz=s96-c",
-      "email": "adityatitame@nimapinfotech.com",
-      "email_verified": true,
-      "locale": "en",
-      "hd": "nimapinfotech.com",
-      "id": 19
-    },
-    {
-      "sub": "108764215609428202872",
-      "name": "Aditya Titame",
-      "given_name": "Aditya",
-      "family_name": "Titame",
-      "picture": "https://lh3.googleusercontent.com/a/AGNmyxb9BmkFkNuFnl1hS63S7g-u2DCA1ityZmH2QpLz=s96-c",
-      "email": "adityatitame@nimapinfotech.com",
-      "email_verified": true,
-      "locale": "en",
-      "hd": "nimapinfotech.com",
-      "id": 20
-    },
-    {
-      "sub": "108764215609428202872",
-      "name": "Aditya Titame",
-      "given_name": "Aditya",
-      "family_name": "Titame",
-      "picture": "https://lh3.googleusercontent.com/a/AGNmyxb9BmkFkNuFnl1hS63S7g-u2DCA1ityZmH2QpLz=s96-c",
-      "email": "adityatitame@nimapinfotech.com",
-      "email_verified": true,
-      "locale": "en",
-      "hd": "nimapinfotech.com",
-      "id": 21
-    },
-    {
-      "sub": "108764215609428202872",
-      "name": "Aditya Titame",
-      "given_name": "Aditya",
-      "family_name": "Titame",
-      "picture": "https://lh3.googleusercontent.com/a/AGNmyxb9BmkFkNuFnl1hS63S7g-u2DCA1ityZmH2QpLz=s96-c",
-      "email": "adityatitame@nimapinfotech.com",
-      "email_verified": true,
-      "locale": "en",
-      "hd": "nimapinfotech.com",
-      "id": 22
-    },
-    {
-      "sub": "108764215609428202872",
-      "name": "Aditya Titame",
-      "given_name": "Aditya",
-      "family_name": "Titame",
-      "picture": "https://lh3.googleusercontent.com/a/AGNmyxb9BmkFkNuFnl1hS63S7g-u2DCA1ityZmH2QpLz=s96-c",
-      "email": "adityatitame@nimapinfotech.com",
-      "email_verified": true,
-      "locale": "en",
-      "hd": "nimapinfotech.com",
-      "id": 23
-    },
-    {
-      "sub": "108764215609428202872",
-      "name": "Aditya Titame",
-      "given_name": "Aditya",
-      "family_name": "Titame",
-      "picture": "https://lh3.googleusercontent.com/a/AGNmyxb9BmkFkNuFnl1hS63S7g-u2DCA1ityZmH2QpLz=s96-c",
-      "email": "adityatitame@nimapinfotech.com",
-      "email_verified": true,
-      "locale": "en",
-      "hd": "nimapinfotech.com",
-      "id": 24
-    },
-    {
-      "email": "aditya@gmail.com",
-      "password": "12345",
-      "confirmPassword": "12345",
-      "mobNo": "1234567890",
-      "terms": [
-        "accepted"
-      ],
-      "id": 25
-    },
-    {
-      "email": "test@nimapinfotech.com",
-      "password": "12345",
-      "confirmPassword": "12345",
-      "mobNo": "1234567890",
-      "terms": [
-        "accepted"
-      ],
-      "id": 26
     }
   ]
 }

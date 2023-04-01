@@ -10,7 +10,7 @@ import axios from 'axios'
 import GoogleButton from 'react-google-button'
 import { useNavigate } from 'react-router'
 
-const LoginForm = ({openLogin,closeModal,openRegi,setIsLogin,setIsRegister}) => {
+const LoginForm = ({ openLogin, closeModal, openRegi, setIsLogin, setIsRegister }) => {
 
     const navigate = useNavigate()
 
@@ -22,24 +22,24 @@ const LoginForm = ({openLogin,closeModal,openRegi,setIsLogin,setIsRegister}) => 
                     "Authorization": `Bearer ${response.access_token}`
                 }
             })
-            if(data.data.email_verified===true){
-                localStorage.setItem('token',data.data.email)
+            if (data.data.email_verified === true) {
+                localStorage.setItem('token', data.data.email)
                 closeModal()
                 navigate('/dashboard')
                 setIsLogin(true)
                 setIsRegister(true)
-                   
+
             }
-            else{
+            else {
                 localStorage.removeItem('token')
             }
         }
 
     });
 
-    if(!openLogin) return null
+    if (!openLogin) return null
 
-    
+
     const initialValues = {
         email: '',
         password: ''
@@ -54,67 +54,72 @@ const LoginForm = ({openLogin,closeModal,openRegi,setIsLogin,setIsRegister}) => 
         // console.log(values)
         onSubmitProps.resetForm()
         axios.get(`http://localhost:8080/users`)
-        .then(resp => {
-            console.log(resp.data)
-            const user = resp.data.find((item)=> item.email===values.email)
-            if(user.password===values.password){
-                localStorage.setItem("token",values.email)
-                navigate('/dashboard')
-                setIsLogin(true)
-                setIsRegister(true)
-                closeModal()
-            }
-            else{
-                localStorage.removeItem('token')
-                navigate('/')
-            }
-        })
-        
+            .then(resp => {
+                console.log(resp.data)
+                const user = resp.data.find((item) => item.email === values.email)
+                if (resp.data.length > 0) {
+                    if (user.password === values.password) {
+                        localStorage.setItem("token", values.email)
+                        navigate('/dashboard')
+                        setIsLogin(true)
+                        setIsRegister(true)
+                        closeModal()
+                    }
+                    else {
+                        localStorage.removeItem('token')
+                        navigate('/')
+                    }
+                }
+                else {
+                    navigate('/')
+                }
+            })
+
     }
 
     return ReactDOM.createPortal(
         <>
-        <div className='main'>
-            <div className='form-card'>
-            <p onClick={closeModal} className='close-btn'><i className="fa-solid fa-xmark fa-lg"></i></p>
-                <h2 style={{marginLeft:'140px'}}>Login</h2>
-                <Formik
-                    initialValues={initialValues}
-                    validationSchema={validationSchema}
-                    onSubmit={onSubmit}
-                >
-                    {
-                        formik => {
-                            return <Form>
-                                <FormikControl
-                                    control='input'
-                                    type='email'
-                                    icon={<i className="fa-solid fa-user fa-lg" style={{ color: '#2196F3' }}></i>}
-                                    label=' Enter Username'
-                                    placeholder='Enter Your Username'
-                                    name='email'
-                                />
-                                <FormikControl
-                                    control='password'
-                                    icon={<i className="fa-solid fa-key fa-lg" style={{ color: '#2196F3' }}></i>}
-                                    label=' Enter Password'
-                                    placeholder='Enter Your Password'
-                                    name='password'
-                                />
-                                <div className='login-div'>
-                                <Button type='submit' variant="contained" className='mui-login-btn'>Login</Button><br /></div>
-                                <div className='already'><div>Don't have an account?</div><div onClick={openRegi} style={{ color: 'blue', cursor: 'pointer' }}>Register</div></div>
-                            </Form>
+            <div className='main'>
+                <div className='form-card'>
+                    <p onClick={closeModal} className='close-btn'><i className="fa-solid fa-xmark fa-lg"></i></p>
+                    <h2 style={{ marginLeft: '140px' }}>Login</h2>
+                    <Formik
+                        initialValues={initialValues}
+                        validationSchema={validationSchema}
+                        onSubmit={onSubmit}
+                    >
+                        {
+                            formik => {
+                                return <Form>
+                                    <FormikControl
+                                        control='input'
+                                        type='email'
+                                        icon={<i className="fa-solid fa-user fa-lg" style={{ color: '#2196F3' }}></i>}
+                                        label=' Enter Username'
+                                        placeholder='Enter Your Username'
+                                        name='email'
+                                    />
+                                    <FormikControl
+                                        control='password'
+                                        icon={<i className="fa-solid fa-key fa-lg" style={{ color: '#2196F3' }}></i>}
+                                        label=' Enter Password'
+                                        placeholder='Enter Your Password'
+                                        name='password'
+                                    />
+                                    <div className='login-div'>
+                                        <Button type='submit' variant="contained" className='mui-login-btn'>Login</Button><br /></div>
+                                    <div className='already'><div>Don't have an account?</div><div onClick={openRegi} style={{ color: 'blue', cursor: 'pointer' }}>Register</div></div>
+                                </Form>
+                            }
                         }
-                    }
 
-                </Formik>
-                <div>------------------OR------------------</div>
-                    
-                        <GoogleButton onClick={login} className="google-btn"/>
+                    </Formik>
+                    <div>------------------OR------------------</div>
+
+                    <GoogleButton onClick={login} className="google-btn" />
+                </div>
             </div>
-        </div>
-        <div className='overlay'></div>
+            <div className='overlay'></div>
         </>,
         document.getElementById('portal')
     )

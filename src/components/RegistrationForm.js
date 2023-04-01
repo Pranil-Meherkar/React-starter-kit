@@ -10,11 +10,11 @@ import axios from 'axios'
 import { useNavigate } from 'react-router'
 import { useState } from 'react'
 
-const RegistrationForm = ({ openRegi, closeModal, openLogin,setIsRegister }) => {
-    
+const RegistrationForm = ({ openRegi, closeModal, openLogin, setIsRegister }) => {
+
     const navigate = useNavigate()
 
-   
+
 
     const login = useGoogleLogin({
         onSuccess: async response => {
@@ -25,12 +25,35 @@ const RegistrationForm = ({ openRegi, closeModal, openLogin,setIsRegister }) => 
                 }
             })
             console.log(data)
-            if(data.data){
-                axios.post("http://localhost:8080/users",data.data)
-            }
-            if(data.data.email_verified===true){
-                localStorage.setItem('token',false)
-                navigate('/dashboard')
+            if (data.data.email_verified === true) {
+
+                const postUser = () => {
+                    axios.post('http://localhost:8080/users', data.data)
+                    setIsRegister(true)
+                    localStorage.setItem('token', data.data.email)
+                    closeModal()
+                    navigate('/dashboard')
+
+                }
+
+                const alreadyExist = () => {
+                    console.log(`${data.data.email} already exist`)
+                    openLogin()
+                }
+
+                axios.get('http://localhost:8080/users')
+                    .then(resp => {
+                        const user = resp.data.find((user) => user.email === data.data.email)
+                        user
+                            ?
+                            alreadyExist()
+                            :
+                            postUser()
+
+                    })
+
+
+
             }
         }
 
@@ -61,12 +84,35 @@ const RegistrationForm = ({ openRegi, closeModal, openLogin,setIsRegister }) => 
     })
 
 
+
     const onSubmit = (values, onSubmitProps) => {
         console.log(values)
         onSubmitProps.resetForm()
-        axios.post('http://localhost:8080/users',values)
-        setIsRegister(true)
-        openLogin()
+
+        const postUser = () => {
+            axios.post('http://localhost:8080/users', values)
+            setIsRegister(true)
+            openLogin()
+        }
+
+        const alreadyExist = () => {
+            console.log(`${values.email} already exist`)
+            openLogin()
+        }
+
+        axios.get('http://localhost:8080/users')
+            .then(resp => {
+                const user = resp.data.find((user) => user.email === values.email)
+                user
+                    ?
+                    alreadyExist()
+                    :
+                    postUser()
+
+            })
+
+
+
     }
 
 
@@ -121,7 +167,7 @@ const RegistrationForm = ({ openRegi, closeModal, openLogin,setIsRegister }) => 
                                         options={checkboxOptions}
                                     />
                                     <div className='modal-btn'>
-                                    <Button type='submit' variant="contained" className='mui-btn'>Register</Button><br /></div>
+                                        <Button type='submit' variant="contained" className='mui-btn'>Register</Button><br /></div>
 
                                     <div className='already'><div >Already have an account?</div><div onClick={openLogin} style={{ color: 'blue', cursor: 'pointer' }}>Login</div></div>
                                 </Form>
@@ -130,9 +176,9 @@ const RegistrationForm = ({ openRegi, closeModal, openLogin,setIsRegister }) => 
 
                     </Formik>
                     <div>------------------OR------------------</div>
-                    
-                        <GoogleButton onClick={login} className="google-btn"/>
-                    
+
+                    <GoogleButton onClick={login} className="google-btn" />
+
                 </div>
             </div>
             <div className='overlay'></div>
