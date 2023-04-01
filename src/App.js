@@ -1,12 +1,12 @@
 import { Route, Routes } from 'react-router'
 import './App.css'
-import Navbar from './components/Navbar/Navbar'
 import { ThemeProvider, createTheme } from '@mui/material'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import MainHeader from './components/layout/MainHeader'
-import Dashboard from './components/Dashboard'
+import Dashboard from './components/pages/Dashboard'
 import Error from './components/pages/ErrorPage/Error'
 import ProtectedRoutes from './routes/ProtectedRoutes'
+import TestPage from './components/pages/TestPage'
 
 
 const App = () => {
@@ -23,10 +23,10 @@ const App = () => {
         <div>
           <Routes>
             <Route path='/' element={<MainHeader />}>
-              <Route element={<ProtectedRoutes/>}>
-                <Route path='/dashboard' element={<Dashboard />} />
-              </Route>
+              <Route path='/dashboard' element={<ProtectedRoutes Component={Dashboard}/>}/>
+              <Route path='/test' element={<TestPage/>}/>
               <Route path='*' element={<Error />} />
+              
             </Route>
           </Routes>
         </div>

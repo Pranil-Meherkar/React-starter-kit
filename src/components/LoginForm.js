@@ -10,7 +10,7 @@ import axios from 'axios'
 import GoogleButton from 'react-google-button'
 import { useNavigate } from 'react-router'
 
-const LoginForm = ({openLogin,closeModal,openRegi}) => {
+const LoginForm = ({openLogin,closeModal,openRegi,setIsLogin,setIsRegister}) => {
 
     const navigate = useNavigate()
 
@@ -23,12 +23,15 @@ const LoginForm = ({openLogin,closeModal,openRegi}) => {
                 }
             })
             if(data.data.email_verified===true){
-                localStorage.setItem('token',true)
+                localStorage.setItem('token',data.data.email)
+                closeModal()
                 navigate('/dashboard')
-                closeModal()   
+                setIsLogin(true)
+                setIsRegister(true)
+                   
             }
             else{
-                localStorage.setItem('token',false)
+                localStorage.removeItem('token')
             }
         }
 
@@ -55,11 +58,14 @@ const LoginForm = ({openLogin,closeModal,openRegi}) => {
             console.log(resp.data)
             const user = resp.data.find((item)=> item.email===values.email)
             if(user.password===values.password){
-                localStorage.setItem("token",true)
+                localStorage.setItem("token",values.email)
                 navigate('/dashboard')
+                setIsLogin(true)
+                setIsRegister(true)
+                closeModal()
             }
             else{
-                localStorage.setItem('token',false)
+                localStorage.removeItem('token')
                 navigate('/')
             }
         })

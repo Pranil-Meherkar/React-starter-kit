@@ -1,11 +1,22 @@
 import React from 'react'
-import { Navigate, Outlet } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router'
 
-const ProtectedRoutes = () => {
-    let auth = localStorage.getItem('token')
-    console.log("Protected",auth)
+const ProtectedRoutes = (props) => {
+    const {Component} = props
+    const navigate = useNavigate()
+    let token = localStorage.getItem('token')
+    // if(!token){
+    //     navigate('/')
+    // }
+    console.log('protected', token)
     return (
-        auth===true ? <Outlet /> : <Navigate to='/' />
+        <div>{
+            token ?
+            <Component />:
+            <Navigate to="/"/>
+        }
+
+        </div>
     )
 }
 

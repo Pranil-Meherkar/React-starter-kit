@@ -8,10 +8,13 @@ import { useGoogleLogin } from '@react-oauth/google';
 import GoogleButton from 'react-google-button'
 import axios from 'axios'
 import { useNavigate } from 'react-router'
+import { useState } from 'react'
 
-const RegistrationForm = ({ openRegi, closeModal, openLogin }) => {
+const RegistrationForm = ({ openRegi, closeModal, openLogin,setIsRegister }) => {
     
     const navigate = useNavigate()
+
+   
 
     const login = useGoogleLogin({
         onSuccess: async response => {
@@ -62,6 +65,7 @@ const RegistrationForm = ({ openRegi, closeModal, openLogin }) => {
         console.log(values)
         onSubmitProps.resetForm()
         axios.post('http://localhost:8080/users',values)
+        setIsRegister(true)
         openLogin()
     }
 
@@ -116,7 +120,8 @@ const RegistrationForm = ({ openRegi, closeModal, openLogin }) => {
                                         name='terms'
                                         options={checkboxOptions}
                                     />
-                                    <Button type='submit' variant="contained" className='mui-btn'>Register</Button><br />
+                                    <div className='modal-btn'>
+                                    <Button type='submit' variant="contained" className='mui-btn'>Register</Button><br /></div>
 
                                     <div className='already'><div >Already have an account?</div><div onClick={openLogin} style={{ color: 'blue', cursor: 'pointer' }}>Login</div></div>
                                 </Form>
