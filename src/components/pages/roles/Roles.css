@@ -1,0 +1,44 @@
+.roles-main{
+    padding: 7.5vh 0;
+    font-size: 2.5rem;
+}
+
+.add-role{
+    font-size: 1.75rem;
+    background-color: #d5ddf0;
+    padding: 0 2vh;
+    border: 0px;
+    border-radius: 10px;
+}
+
+.add-role:hover{
+    background-color: #99a3bd;
+}
+
+.roles-table{
+    padding: 0 30vh;
+    margin-top: 10vh;
+    font-size: 1.5rem;  
+}
+.table{
+    border-radius: 7.5px;
+}
+
+.roles-table-body{
+    background-color: white;
+}
+
+.roles-table-row{
+    padding: 10px;
+}
+
+.roles-actions-icons{
+    width: 2vw;
+    height: 2vw;
+    border-radius: 5px;
+}
+
+.roles-actions-icons:hover{
+    background-color: #99a3bd;
+}
+

@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import ErrorBoundry from '../ErrorBoundry/ErrorBoundry';
 import Loader from '../Loader';
 const RegistrationForm = React.lazy(() => import('../../forms/RegistrationForm'));
-const LoginForm = React.lazy(()=>import('./../../forms/LoginForm'))
+const LoginForm = React.lazy(()=>import('../../forms/LoginForm'))
 
 const Navbar = () => {
   const [openLogin, setOpenLogin] = useState(false)
