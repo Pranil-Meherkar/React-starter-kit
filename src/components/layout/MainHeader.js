@@ -6,6 +6,7 @@ const MainHeader = () => {
   return (
     <div>
         <Navbar/>
+        
         <Outlet/>
     </div>
   )
