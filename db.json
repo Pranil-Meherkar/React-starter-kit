@@ -51,6 +51,26 @@
         "accepted"
       ],
       "id": 5
+    },
+    {
+      "email": "r@gmail.com",
+      "password": "12345",
+      "confirmPassword": "12345",
+      "mobNo": "1234567890",
+      "terms": [
+        "accepted"
+      ],
+      "id": 6
+    },
+    {
+      "email": "b@gmail.com",
+      "password": "12345",
+      "confirmPassword": "12345",
+      "mobNo": "1234567890",
+      "terms": [
+        "accepted"
+      ],
+      "id": 7
     }
   ]
 }

@@ -1,9 +1,9 @@
 import React from 'react'
-import { Navigate, useNavigate } from 'react-router'
+import { Navigate } from 'react-router'
 
 const ProtectedRoutes = (props) => {
     const {Component} = props
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     let token = localStorage.getItem('token')
     // if(!token){
     //     navigate('/')

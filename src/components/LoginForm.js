@@ -9,6 +9,7 @@ import { useGoogleLogin } from '@react-oauth/google'
 import axios from 'axios'
 import GoogleButton from 'react-google-button'
 import { useNavigate } from 'react-router'
+import { toast } from 'react-toastify'
 
 const LoginForm = ({ openLogin, closeModal, openRegi, setIsLogin, setIsRegister }) => {
 
@@ -25,13 +26,15 @@ const LoginForm = ({ openLogin, closeModal, openRegi, setIsLogin, setIsRegister 
             if (data.data.email_verified === true) {
                 localStorage.setItem('token', data.data.email)
                 closeModal()
-                navigate('/dashboard')
                 setIsLogin(true)
                 setIsRegister(true)
+                navigate('/dashboard')
+                toast.success('Login Successful',{autoClose:3000})
 
             }
             else {
                 localStorage.removeItem('token')
+                toast.error('Invalid Username or Password')
             }
         }
 
@@ -64,10 +67,12 @@ const LoginForm = ({ openLogin, closeModal, openRegi, setIsLogin, setIsRegister 
                         setIsLogin(true)
                         setIsRegister(true)
                         closeModal()
+                        toast.success('Login Successful',{autoClose:3000})
                     }
                     else {
                         localStorage.removeItem('token')
                         navigate('/')
+                        toast.error('Invalid Username or Password',{autoClose:3000})
                     }
                 }
                 else {

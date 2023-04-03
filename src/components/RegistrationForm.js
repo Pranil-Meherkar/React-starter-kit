@@ -9,7 +9,8 @@ import GoogleButton from 'react-google-button'
 import axios from 'axios'
 import { useNavigate } from 'react-router'
 import { useState } from 'react'
-import Toaster from './shared/Toaster/Toaster'
+import { toast } from 'react-toastify'
+// import Toaster from './shared/Toaster/Toaster'
 
 const RegistrationForm = ({ openRegi, closeModal, openLogin, setIsRegister }) => {
 
@@ -34,11 +35,13 @@ const RegistrationForm = ({ openRegi, closeModal, openLogin, setIsRegister }) =>
                     localStorage.setItem('token', data.data.email)
                     closeModal()
                     navigate('/dashboard')
+                    toast.success('Login Successful')
 
                 }
 
                 const alreadyExist = () => {
                     console.log(`${data.data.email} already exist`)
+                    toast.warn(`User already Exists Please Login`,{autoClose:3000})
                     openLogin()
                 }
 
@@ -95,10 +98,13 @@ const RegistrationForm = ({ openRegi, closeModal, openLogin, setIsRegister }) =>
             setIsRegister(true)
             setIsSuccess(true)
             openLogin()
+            toast.success(`User Login Successfully
+                            Please Login`,{autoClose:3000})
         }
 
         const alreadyExist = () => {
             console.log(`${values.email} already exist`)
+            toast.warn(`User already Exists Please Login`,{autoClose:3000})
             openLogin()
         }
 
@@ -112,9 +118,7 @@ const RegistrationForm = ({ openRegi, closeModal, openLogin, setIsRegister }) =>
                     postUser()
 
             })
-
-
-
+            .catch((err)=>console.log(err.message))
     }
 
 
