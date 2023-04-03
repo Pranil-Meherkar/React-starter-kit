@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import LoginForm from '../../LoginForm'
-import RegistrationForm from '../../RegistrationForm'
+import React, { useState } from 'react';
+import RegistrationForm from '../../forms/RegistrationForm';
+import LoginForm from './../../forms/LoginForm';
 import { googleLogout } from '@react-oauth/google';
 
 import './Navbar.css'
