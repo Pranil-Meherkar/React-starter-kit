@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { googleLogout } from '@react-oauth/google';
 import './Navbar.css'
 import { Button } from '@mui/material'
@@ -27,7 +27,11 @@ const Navbar = () => {
     setIsRegister(false)
     setIsLogin(false)
   }
+useEffect(()=>{
+localStorage.getItem('token') && setIsRegister(true)
+localStorage.getItem('token') && setIsLogin(true)
 
+},[])
 
 
   return (

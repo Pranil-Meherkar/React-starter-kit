@@ -83,6 +83,27 @@
       "locale": "en",
       "hd": "nimapinfotech.com",
       "id": 8
+    },
+    {
+      "sub": "102006194574846291335",
+      "name": "ADITYA TITAME",
+      "given_name": "ADITYA",
+      "family_name": "TITAME",
+      "picture": "https://lh3.googleusercontent.com/a/AGNmyxYY0ouE_DjjHurliOrvNRe5rao_oIvgHE4P7bV5MA=s96-c",
+      "email": "adityatitame1110@gmail.com",
+      "email_verified": true,
+      "locale": "en",
+      "id": 9
+    },
+    {
+      "email": "c@gmail.com",
+      "password": "12345678",
+      "confirmPassword": "12345678",
+      "mobNo": "1234567890",
+      "terms": [
+        "accepted"
+      ],
+      "id": 10
     }
   ],
   "test": [
