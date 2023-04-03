@@ -54,6 +54,7 @@ const Navbar = () => {
       <ErrorBoundry fallback={<h1>Problem with Registration Page</h1>}>
       <RegistrationForm
         setIsRegister={setIsRegister}
+        setIsLogin={setIsLogin}
         openRegi={openRegi}
         openLogin={() => {
           setOpenRegi(false)

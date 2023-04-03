@@ -34,7 +34,7 @@ const RegistrationForm = ({ openRegi, closeModal, openLogin, setIsRegister,setIs
                     setIsRegister(true)
                     localStorage.setItem('token', data.data.email)
                     closeModal()
-                    // setIsLogin(true)
+                    setIsLogin(true)
                     navigate('/dashboard')
                     toast.success('Login Successful')
 
@@ -42,12 +42,17 @@ const RegistrationForm = ({ openRegi, closeModal, openLogin, setIsRegister,setIs
 
                 const alreadyExist = () => {
                     console.log(`${data.data.email} already exist`)
+                    setIsLogin(true)
                     setIsRegister(true)
+                    
                     localStorage.setItem('token', data.data.email)
+                    
                     closeModal()
-                    // setIsLogin(true)
+                    
                     navigate('/dashboard')
+                    
                     toast.success('Login Successful')
+                    
                 }
 
                 axios.get('http://localhost:8080/users')
@@ -60,9 +65,6 @@ const RegistrationForm = ({ openRegi, closeModal, openLogin, setIsRegister,setIs
                             postUser()
 
                     })
-
-
-
             }
         }
 
