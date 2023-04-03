@@ -12,7 +12,7 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 // import Toaster from './shared/Toaster/Toaster'
 
-const RegistrationForm = ({ openRegi, closeModal, openLogin, setIsRegister }) => {
+const RegistrationForm = ({ openRegi, closeModal, openLogin, setIsRegister,setIsLogin }) => {
 
     const navigate = useNavigate()
     const [isSuccess, setIsSuccess] = useState(true)
@@ -34,6 +34,7 @@ const RegistrationForm = ({ openRegi, closeModal, openLogin, setIsRegister }) =>
                     setIsRegister(true)
                     localStorage.setItem('token', data.data.email)
                     closeModal()
+                    // setIsLogin(true)
                     navigate('/dashboard')
                     toast.success('Login Successful')
 

@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import LoginForm from '../LoginForm'
-import RegistrationForm from '../RegistrationForm'
+import LoginForm from '../../LoginForm'
+import RegistrationForm from '../../RegistrationForm'
 import { googleLogout } from '@react-oauth/google';
 
 import './Navbar.css'
 import { Button } from '@mui/material'
 import { useNavigate } from 'react-router';
+import { toast } from 'react-toastify';
+import ErrorBoundry from '../ErrorBoundry/ErrorBoundry';
 
 const Navbar = () => {
   const [openLogin, setOpenLogin] = useState(false)
@@ -20,6 +22,7 @@ const Navbar = () => {
     googleLogout();
     localStorage.removeItem('token')
     navigate('/')
+    toast.success('Logout Successful',{autoClose:2000})
     console.log("Logout successful")
     setIsRegister(false)
     setIsLogin(false)
@@ -33,21 +36,22 @@ const Navbar = () => {
         <nav className='nav'>
           <div className='logo'>LOGO</div>
           <ul>
-            
-              <li>
-                {
-                  isRegister ? null : <Button variant="contained" onClick={() => setOpenRegi(true)} >Register</Button>
-                }
-              </li>
-              <li>
-                {
-                  isLogin ? <Button variant="contained" onClick={logout}>Logout</Button> : <Button variant="contained" onClick={() => setOpenLogin(true)} >Login</Button>
-                }
-              </li>
-            
+
+            <li>
+              {
+                isRegister ? null : <Button variant="contained" onClick={() => setOpenRegi(true)} >Register</Button>
+              }
+            </li>
+            <li>
+              {
+                isLogin ? <Button variant="contained" onClick={logout}>Logout</Button> : <Button variant="contained" onClick={() => setOpenLogin(true)} >Login</Button>
+              }
+            </li>
+
           </ul>
         </nav>
       </div>
+      <ErrorBoundry fallback={<h1>Problem with Registration Page</h1>}>
       <RegistrationForm
         setIsRegister={setIsRegister}
         openRegi={openRegi}
@@ -56,6 +60,8 @@ const Navbar = () => {
           setOpenLogin(true)
         }}
         closeModal={() => setOpenRegi(false)} />
+        </ErrorBoundry>
+        <ErrorBoundry fallback={<h1>Problem with Login Page</h1>}>
       <LoginForm
         setIsLogin={setIsLogin}
         setIsRegister={setIsRegister}
@@ -65,6 +71,7 @@ const Navbar = () => {
           setOpenRegi(true)
         }}
         closeModal={() => setOpenLogin(false)} />
+        </ErrorBoundry>
     </>
   )
 }

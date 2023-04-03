@@ -9,6 +9,7 @@ import ProtectedRoutes from './routes/ProtectedRoutes'
 import TestPage from './components/pages/TestPage'
 
 
+
 const App = () => {
   const font = "'Poppins', sans-serif";
   const theme = createTheme({
@@ -22,10 +23,12 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <div>
           <Routes>
+            
             <Route path='/' element={<MainHeader />}>
               <Route path='/dashboard' element={<ProtectedRoutes Component={Dashboard}/>}/>
               <Route path='/test' element={<TestPage/>}/>
               <Route path='*' element={<Error />} />
+              
             </Route>
           </Routes>
         </div>

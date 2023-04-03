@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../Navbar/Navbar'
+import Navbar from '../shared/Navbar/Navbar'
 import { Outlet } from 'react-router'
 
 const MainHeader = () => {
