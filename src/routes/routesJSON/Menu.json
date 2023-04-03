@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "masterName": "home",
+    "masterPanel": [
+      { "id": 1, "name": "Dashboard", "link": "/dashboard" }
+    ]
+    
+  },
+  {
+    "id": 2,
+    "masterName": "roles & permissions",
+    "masterPanel": [
+      { "id": 2, "name": "Roles", "link": "/roles" },
+      { "id": 3, "name": "Permissions", "link": "/permissions" }
+    ]
+  },
+  {
+    "id": 3,
+    "masterName": "Pages",
+    "masterPanel": [
+      { "id": 4, "name": "Bulk Upload", "link": "/bulk-upload" },
+      { "id": 5, "name": "Profiles", "link": "/profiles" },
+      { "id": 6, "name": "Settings", "link": "/settings" }
+    ]
+  }
+  
+]
+
+  
