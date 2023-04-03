@@ -4,9 +4,13 @@ import { Outlet } from 'react-router-dom';
 // import Navbar from '../components/dashboard/Navbar';
 // import ProfileModal from '../components/dashboard/modal/ProfileModal';
 
-const Sidebar = lazy(() => import("./../components/dashboard/Sidebar"))
-const Navbar = lazy(() => import("./../components/dashboard/Navbar"))
-const ProfileModal = lazy(() => import("../components/dashboard/modal/ProfileModal"))
+// const Sidebar = lazy(() => import("./../components/dashboard/Sidebar"))
+// const Navbar = lazy(() => import("./../components/dashboard/Navbar"))
+// const ProfileModal = lazy(() => import("../components/dashboard/modal/ProfileModal"))
+
+import Sidebar from '../shared/SideBar/Sidebar';
+import Navbar from '../shared/Navbar/NavbarLogin';
+import ProfileModal from '../pages/dashboard/modal/ProfileModal';
 
 
 const HomeLayout = ({setToken}) => {
