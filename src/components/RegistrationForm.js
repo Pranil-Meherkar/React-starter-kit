@@ -42,8 +42,12 @@ const RegistrationForm = ({ openRegi, closeModal, openLogin, setIsRegister,setIs
 
                 const alreadyExist = () => {
                     console.log(`${data.data.email} already exist`)
-                    toast.warn(`User already Exists Please Login`,{autoClose:3000})
-                    openLogin()
+                    setIsRegister(true)
+                    localStorage.setItem('token', data.data.email)
+                    closeModal()
+                    // setIsLogin(true)
+                    navigate('/dashboard')
+                    toast.success('Login Successful')
                 }
 
                 axios.get('http://localhost:8080/users')
