@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import RegistrationForm from '../../forms/RegistrationForm';
-import LoginForm from './../../forms/LoginForm';
+import React, { Suspense, useState } from 'react';
 import { googleLogout } from '@react-oauth/google';
-
 import './Navbar.css'
 import { Button } from '@mui/material'
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import ErrorBoundry from '../ErrorBoundry/ErrorBoundry';
+import Loader from '../Loader';
+const RegistrationForm = React.lazy(() => import('../../forms/RegistrationForm'));
+const LoginForm = React.lazy(()=>import('./../../forms/LoginForm'))
 
 const Navbar = () => {
   const [openLogin, setOpenLogin] = useState(false)
@@ -22,7 +22,7 @@ const Navbar = () => {
     googleLogout();
     localStorage.removeItem('token')
     navigate('/')
-    toast.success('Logout Successful',{autoClose:2000})
+    toast.success('Logout Successful', { autoClose: 2000 })
     console.log("Logout successful")
     setIsRegister(false)
     setIsLogin(false)
@@ -36,7 +36,7 @@ const Navbar = () => {
         <nav className='nav'>
           <div className='logo'>LOGO</div>
           <ul>
-
+            
             <li>
               {
                 isRegister ? null : <Button variant="contained" onClick={() => setOpenRegi(true)} >Register</Button>
@@ -52,27 +52,31 @@ const Navbar = () => {
         </nav>
       </div>
       <ErrorBoundry fallback={<h1>Problem with Registration Page</h1>}>
-      <RegistrationForm
-        setIsRegister={setIsRegister}
-        setIsLogin={setIsLogin}
-        openRegi={openRegi}
-        openLogin={() => {
-          setOpenRegi(false)
-          setOpenLogin(true)
-        }}
-        closeModal={() => setOpenRegi(false)} />
-        </ErrorBoundry>
-        <ErrorBoundry fallback={<h1>Problem with Login Page</h1>}>
-      <LoginForm
-        setIsLogin={setIsLogin}
-        setIsRegister={setIsRegister}
-        openLogin={openLogin}
-        openRegi={() => {
-          setOpenLogin(false)
-          setOpenRegi(true)
-        }}
-        closeModal={() => setOpenLogin(false)} />
-        </ErrorBoundry>
+        <Suspense fallback={<Loader/>}>
+          <RegistrationForm
+            setIsRegister={setIsRegister}
+            setIsLogin={setIsLogin}
+            openRegi={openRegi}
+            openLogin={() => {
+              setOpenRegi(false)
+              setOpenLogin(true)
+            }}
+            closeModal={() => setOpenRegi(false)} />
+        </Suspense>
+      </ErrorBoundry>
+      <ErrorBoundry fallback={<h1>Problem with Login Page</h1>}>
+        <Suspense fallback={<Loader/>}>
+        <LoginForm
+          setIsLogin={setIsLogin}
+          setIsRegister={setIsRegister}
+          openLogin={openLogin}
+          openRegi={() => {
+            setOpenLogin(false)
+            setOpenRegi(true)
+          }}
+          closeModal={() => setOpenLogin(false)} />
+          </Suspense>
+      </ErrorBoundry>
     </>
   )
 }
