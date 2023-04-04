@@ -24,7 +24,7 @@ const Sidebar = (props) => {
     "Bulk Upload": <DriveFolderUploadIcon fontSize="small"/>,
     "Profiles": <AccountCircleIcon fontSize="small"/>,
     "Settings": <SettingsIcon fontSize="small"/>,
-    "Products": <AddShoppingCartIcon/>
+    "Products": <AddShoppingCartIcon fontSize="small"/>
   }
 
   const headerIconComponents = {
