@@ -18,18 +18,18 @@ const Sidebar = (props) => {
   const [showSubMenuItems, setShowSubMenuItems] = useState(Menu.map(item => false));
 
   const iconComponents = {
-    "Dashboard": <HomeIcon/>,
-    "Roles": <PersonIcon/>,
-    "Permissions": <SecurityIcon/>,
-    "Bulk Upload": <DriveFolderUploadIcon/>,
-    "Profiles": <AccountCircleIcon/>,
-    "Settings": <SettingsIcon/>,
+    "Dashboard": <HomeIcon fontSize="small"/>,
+    "Roles": <PersonIcon fontSize="small"/>,
+    "Permissions": <SecurityIcon fontSize="small"/>,
+    "Bulk Upload": <DriveFolderUploadIcon fontSize="small"/>,
+    "Profiles": <AccountCircleIcon fontSize="small"/>,
+    "Settings": <SettingsIcon fontSize="small"/>,
     "Products": <AddShoppingCartIcon/>
   }
 
   const headerIconComponents = {
-    "roles & permissions": <SecurityIcon fontSize="large"/>,
-    "Pages": <WebIcon fontSize="large" />,
+    "roles & permissions": <SecurityIcon fontSize="medium"/>,
+    "Pages": <WebIcon fontSize="medium" />,
   }
   const { hideSidebar, handleHideSidebar } = props;
 

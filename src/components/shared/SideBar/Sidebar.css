@@ -48,7 +48,7 @@ html {
 }
 .sidebar__ul--1 {
   margin: 0;
-  padding:10px;
+  padding: 10px;
 }
 .sidebar__ul--2 {
   height: 92vh;
@@ -56,6 +56,7 @@ html {
   padding-bottom: 2.5rem;
   margin: 0;
   transition: all 0.2s;
+  padding-left: 32px;
 }
 .sidebar__ul--2::-webkit-scrollbar {
   display: none;
@@ -85,8 +86,8 @@ html {
 .sidebar__ul--li-head-span {
   display: grid;
   justify-self: end;
-  cursor: pointer;
   margin-left: 150px;
+  cursor: pointer;
 }
 
 .sidebar__ul--li-head-span.small {
@@ -108,7 +109,7 @@ html {
   font-size: 0.8rem;
   text-transform: uppercase;
   justify-self: start;
-  padding: 0.93rem 0;
+  padding: 1rem 0;
   margin-top: 1.1rem;
   margin-bottom: 0;
   color: #63b8ec;
@@ -133,7 +134,7 @@ html {
   text-decoration: none;
   font-size: 0.75rem;
   padding-right: 1.87rem;
-  padding-left: 6px;
+  padding-left: 2px;
   transition: all 0.2s;
 }
 
