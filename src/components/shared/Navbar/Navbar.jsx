@@ -3,6 +3,7 @@ import React, {useState} from "react";
 const customStyles = {
   paddingLeft: "30px",
   fontSize: "1.1rem",
+  borderBottom: "1px solid #ddd"
 };
 
 const Navbar = ({ username, openModal, setOpenModal}) => {

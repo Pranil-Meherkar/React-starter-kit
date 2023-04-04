@@ -37,9 +37,9 @@ label svg{
     margin-top: -20px;
 }
 .form-control{
-    margin-left: 30px;
-    border: 0;
-    background-color: #fff0;
+    /* margin-left: 30px; */
+    /* border: 0;
+    background-color: #fff0; */
 }
 
 ::-webkit-scrollbar{
