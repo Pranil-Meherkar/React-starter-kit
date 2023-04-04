@@ -20,25 +20,36 @@ const BulkUpload = () => {
         </h1>
       </div>
       <div className="bulkUpload">
-        <div style={{ marginLeft: "110px" }}>
-          <BulkUploadModal />
-          <div
-            className="upload-notes"
-            style={{
-              padding: "20px 0",
-              display: "flex",
-              textAlign: "left",
-              color: "#999",
-              fontSize: "0.8rem",
-            }}
-          >
-            <p>
-              Notes: <br />
-              1. Only Excel and CSV Files are allowed <br />
-              2. File size should be between 1kB to 1MB <br />
-              3. Row entries should not be empty for required column fields{" "}
-              <br />
-            </p>
+        <div
+          style={{
+            paddingTop: "30px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <div>
+            <div>
+              <BulkUploadModal />
+            </div>
+            <div
+              className="upload-notes"
+              style={{
+                padding: "20px 0",
+                display: "flex",
+                textAlign: "left",
+                color: "#999",
+                fontSize: "0.8rem",
+              }}
+            >
+              <p>
+                Notes: <br />
+                1. Only Excel and CSV Files are allowed <br />
+                2. File size should be between 1kB to 1MB <br />
+                3. Row entries should not be empty for required column fields{" "}
+                <br />
+              </p>
+            </div>
           </div>
         </div>
 
