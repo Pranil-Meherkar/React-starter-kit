@@ -10,23 +10,26 @@ const initialValues = {
   description:""
 }
 
+const initialValuesTouched = {
+  role: false,
+  description: false
+}
+
 const AddRoleModal = ({getRolesData, setMyRef,loadData,setLoadValues}) => {
     const [formData, setFormData] = useState(initialValues);
-    const [errors, setErrors] = useState({
-        role:"",
-        description:""
-    });
+    const [touched, setTouched] = useState(initialValuesTouched);
+    const [errors, setErrors] = useState(initialValues);
 
 
     const modalRef = useRef(null)
     const closeRef = useRef(null)
     setMyRef(modalRef)
 
-    const validate = () => {
+    const validateChange = () => {
       let roleError = ""
       let desError = ""
-        roleError = !formData.role && "Required"
-        desError = !formData.description && "Required"
+      roleError = (!formData.role && touched.role) && "This field is Required"
+      desError = (!formData.description && touched.description) && "This field is Required"
         setErrors({
           role: roleError,
           description: desError
@@ -42,11 +45,12 @@ const AddRoleModal = ({getRolesData, setMyRef,loadData,setLoadValues}) => {
     },[loadData])
 
     useEffect(()=> {
-        validate()
-    },[formData])
+        validateChange()
+    },[formData, touched])
 
 
     const handleSubmit = (e) => {
+        validateChange()
         e.preventDefault()
         if(!Object.values(formData).join("").length) return false
 
@@ -99,7 +103,7 @@ const AddRoleModal = ({getRolesData, setMyRef,loadData,setLoadValues}) => {
         aria-hidden="true"
       >
         <div className="modal-dialog">
-          <div className="modal-content" style={{marginTop:"20vh",width:"30vw",fontSize:"0.92rem", /*backgroundColor:"#99a3bd"*/}}>
+          <div className="modal-content" style={{marginTop:"5vh",fontSize:"0.92rem" /*backgroundColor:"#99a3bd"*/}}>
             <div className="modal-header" >
               <h1 className="modal-title fs-5" id="exampleModalLabel" >
                 {(loadData? "Edit": "Add") +" Role"}
@@ -111,14 +115,16 @@ const AddRoleModal = ({getRolesData, setMyRef,loadData,setLoadValues}) => {
                 aria-label="Close"
                 ref={closeRef}
                 onClick={() => {
+                    setTouched(initialValuesTouched)
                     setLoadValues(null)
+                    setErrors(initialValues);
                     setFormData(initialValues)
                 }}
               ></button>
             </div>
             <div className="modal-body">
-              <div className="add-role-form" style={{textAlign: "left", padding: "20px"}}>
-              <form>
+              <div className="add-role-form" style={{textAlign: "left", padding: "20px", maxHeight: "65vh", overflowY:"scroll", overflowX: "hidden"}}>
+              <form style={{paddingRight:"20px"}}>
                 <div className="form-group">
                   <label htmlFor="role">Role<Required/></label>
                   <input
@@ -126,6 +132,12 @@ const AddRoleModal = ({getRolesData, setMyRef,loadData,setLoadValues}) => {
                     className="form-control"
                     id="role"
                     value={formData.role}
+                    onBlur={() => {
+                      setTouched({
+                        ...touched,
+                        role: true
+                      })
+                    }}
                     onChange={(e)=>{
                         setFormData({
                             ...formData,
@@ -144,6 +156,12 @@ const AddRoleModal = ({getRolesData, setMyRef,loadData,setLoadValues}) => {
                     className="form-control"
                     id="role-description"
                     value={formData.description}
+                    onBlur={() => {
+                      setTouched({
+                        ...touched,
+                        description: true
+                      })
+                    }}
                     onChange={(e)=>{
                         setFormData({
                             ...formData,

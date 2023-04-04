@@ -10,6 +10,12 @@ const initialValues = {
   roles: "",
 }
 
+const initialValuesTouched = {
+  permission: false,
+  description: false,
+  roles: false,
+}
+
 const AddPermissionsModal = ({
   rolesData,
   getPermissionsData,
@@ -18,6 +24,7 @@ const AddPermissionsModal = ({
   setLoadValues,
 }) => {
   const [formData, setFormData] = useState(initialValues);
+  const [touched, setTouched] = useState(initialValuesTouched);
   const [errors, setErrors] = useState(initialValues);
   const modalRef = useRef(null);
   const closeRef = useRef(null);
@@ -27,9 +34,9 @@ const AddPermissionsModal = ({
     let permError = "";
     let desError = "";
     let rolError = "";
-    permError = !formData.permission && "Required";
-    desError = !formData.description && "Required";
-    rolError = !formData.roles && "Required";
+    permError = (!formData.permission && touched.permission) && "This field is Required";
+    desError = (!formData.description && touched.description) && "This field is Required";
+    rolError = (!formData.roles && touched.roles) && "This field is Required";
     setErrors({
       permission: permError,
       description: desError,
@@ -47,9 +54,10 @@ const AddPermissionsModal = ({
       : setFormData(initialValues);
   }, [loadData]);
 
-  useEffect(validate, [formData])
+  useEffect(validate, [formData, touched])
 
   const handleSubmit = (e) => {
+    validate()
     e.preventDefault();
     if (!Object.values(formData).join("").length) return false;
 
@@ -100,7 +108,7 @@ const AddPermissionsModal = ({
         <div className="modal-dialog">
           <div
             className="modal-content"
-            style={{ marginTop: "20vh", width: "30vw", fontSize: "0.92rem" }}
+            style={{ marginTop: "5vh" , fontSize: "0.92rem" }}
           >
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="exampleModalLabel">
@@ -113,6 +121,7 @@ const AddPermissionsModal = ({
                 aria-label="Close"
                 ref={closeRef}
                 onClick={() => {
+                  setTouched(initialValuesTouched)
                   setLoadValues(null);
                   setErrors(initialValues);
                   setFormData(initialValues)
@@ -120,8 +129,8 @@ const AddPermissionsModal = ({
               ></button>
             </div>
             <div className="modal-body">
-              <div className="add-role-form" style={{textAlign: "left", padding: "20px"}}>
-                <form>
+              <div className="add-role-form" style={{textAlign: "left", padding: "20px", maxHeight: "65vh", overflowY:"scroll", overflowX: "hidden"}}>
+                <form style={{paddingRight:"20px"}}>
                   <div className="form-group">
                     <label htmlFor="permission">
                       Permission Name
@@ -137,6 +146,12 @@ const AddPermissionsModal = ({
                           ...formData,
                           permission: e.target.value,
                         });
+                      }}
+                      onBlur={() => {
+                        setTouched({
+                          ...touched,
+                          permission: true
+                        })
                       }}
                       placeholder="Enter Role"
                       style={{ height: "35px", fontSize: "0.85rem" }}
@@ -164,6 +179,12 @@ const AddPermissionsModal = ({
                           description: e.target.value,
                         });
                       }}
+                      onBlur={() => {
+                        setTouched({
+                          ...touched,
+                          description: true
+                        })
+                      }}
                       placeholder="Enter Description"
                       style={{ height: "35px", fontSize: "0.85rem" }}
                     />
@@ -187,6 +208,12 @@ const AddPermissionsModal = ({
                           ...formData,
                           roles: e.target.value,
                         });
+                      }}
+                      onBlur={() => {
+                        setTouched({
+                          ...touched,
+                          roles: true
+                        })
                       }}
                       aria-label="Default select example"
                       style={{ height: "35px", fontSize: "0.85rem", width: "92.5%"}}
