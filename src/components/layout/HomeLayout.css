@@ -1,0 +1,11 @@
+.home-layout {
+  display: flex;
+}
+
+.homepage-container {
+  width: 100%;
+}
+
+.current-page {
+  font-weight: bolder;
+}

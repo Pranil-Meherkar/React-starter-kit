@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { NavLink } from "react-router-dom";
-import Menu from ""
+import Menu from "../../../routes/routesJSON/Menu.json"
 import "./Sidebar.css";
 import MenuIcon from "@mui/icons-material/Menu";
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
@@ -98,7 +98,7 @@ const Sidebar = (props) => {
                         style={{
                           backgroundColor: "#63B8EC",
                           color: "white",
-                          padding: "0.5rem",
+                          padding: "0.3125rem",
                           borderRadius: "50px",
                         }}
                       >

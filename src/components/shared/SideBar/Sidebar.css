@@ -1,11 +1,11 @@
 ::-webkit-scrollbar {
-  width: 0.7rem;
-  height: 0.7rem;
+  width: 0.4rem;
+  height: 0.4rem;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: #a2dfff;
-  border-radius: 1rem;
+  border-radius: .65rem;
 }
 ::-webkit-scrollbar-thumb:hover {
   background-color: #63b8ec;
@@ -18,11 +18,11 @@
   padding: 0;
   box-sizing: inherit;
 }
-
+/* 
 html {
   font-size: 62.5%;
   box-sizing: border-box;
-}
+} */
 
 .sidebar {
   text-align: left;
@@ -49,7 +49,7 @@ html {
 .sidebar__ul--2 {
   height: 92vh;
   overflow-y: scroll;
-  padding-bottom: 4rem;
+  padding-bottom: 2.5rem;
   margin: 0;
   transition: all 0.2s;
 }
@@ -67,8 +67,8 @@ html {
   align-items: center;
   color: #4c4e6f;
   text-transform: capitalize;
-  font-size: 1rem;
-  height: 4.5rem;
+  font-size: .625rem;
+  height: 2.8rem;
 }
 
 .sidebar__ul--li-head {
@@ -89,8 +89,8 @@ html {
 }
 .sidebar__ul--li-head-arrow {
   cursor: pointer;
-  height: 7rem;
-  width: 6rem;
+  height: 2.375rem;
+  width: 3.75rem;
   display: grid;
   align-content: center;
   justify-content: center;
@@ -100,21 +100,21 @@ html {
   color: #63b8ec;
 }
 .sidebar__ul--li-title {
-  font-size: 1.3rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   justify-self: start;
-  padding: 1.5rem 0;
-  margin-top: 1.7rem;
+  padding: 0.93rem 0;
+  margin-top: 1.1rem;
   margin-bottom: 0;
   color: #63b8ec;
   cursor: pointer;
   user-select: none;
 }
 .sidebar__ul--li-title1 {
-  font-size: 1.1rem;
+  font-size: .69rem;
   text-transform: uppercase;
   justify-self: start;
-  padding: 0rem 2.5rem;
+  padding: 0rem 1.56rem;
   margin-top: 0rem;
   margin-bottom: 0;
 }
@@ -123,17 +123,17 @@ html {
   align-items: center;
   grid-auto-flow: column;
   justify-content: start;
-  gap: 2.5rem;
+  gap: 1.56rem;
   color: #3c3d3e;
   text-decoration: none;
-  font-size: 1.2rem;
-  padding-right: 3rem;
+  font-size: 0.75rem;
+  padding-right: 1.87rem;
   padding-left: 3px;
   transition: all 0.2s;
 }
 
 .sidebar__ul--li-nav-1 {
-  padding: 1.5rem 2.5rem;
+  padding: .93rem 1.56rem;
 }
 .sidebar__ul--li-nav-i {
   color: #d0edff;
@@ -143,18 +143,18 @@ html {
 }
 .sidebar__ul--li-nav:hover {
   color: black;
-  font-size: 1.2rem;
+  font-size: 0.75rem;
   transform: scale(1.05);
   text-decoration: none;
 }
 .sidebar__ul--li-nav-active {
   color: black;
-  font-size: 1.3rem;
+  font-size: .81rem;
   position: relative;
 }
 .sidebar__ul--li-nav-active::after {
   content: "";
-  height: 3rem;
+  height: 1.88rem;
   width: 5px;
   background-color: #63b8ec;
   position: absolute;

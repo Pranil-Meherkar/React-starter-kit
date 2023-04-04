@@ -1,3 +1,4 @@
+import "./HomeLayout.css"
 import React, {useState, lazy} from 'react';
 import { Outlet } from 'react-router-dom';
 // import Sidebar from './../components/dashboard/Sidebar';
@@ -9,7 +10,7 @@ import { Outlet } from 'react-router-dom';
 // const ProfileModal = lazy(() => import("../components/dashboard/modal/ProfileModal"))
 
 import Sidebar from '../shared/SideBar/Sidebar';
-import Navbar from '../shared/Navbar/NavbarLogin';
+import Navbar from '../shared/Navbar/Navbar';
 import ProfileModal from '../pages/dashboard/modal/ProfileModal';
 
 
