@@ -1,11 +1,10 @@
-import React, { Suspense, useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import { googleLogout } from '@react-oauth/google';
 import './Navbar.css'
 import { Button } from '@mui/material'
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
-import ErrorBoundry from '../ErrorBoundry/ErrorBoundry';
-import Loader from '../Loader';
+
 const RegistrationForm = React.lazy(() => import('../../forms/RegistrationForm'));
 const LoginForm = React.lazy(()=>import('./../../forms/LoginForm'))
 
@@ -14,7 +13,7 @@ const Navbar = () => {
   const [openRegi, setOpenRegi] = useState(false)
   const [isRegister, setIsRegister] = useState(false)
   const [isLogin, setIsLogin] = useState(false)
-  console.log("registration", isRegister)
+ 
 
   const navigate = useNavigate()
 
@@ -32,7 +31,6 @@ localStorage.getItem('token') && setIsRegister(true)
 localStorage.getItem('token') && setIsLogin(true)
 
 },[])
-
 
   return (
     <>
@@ -55,8 +53,7 @@ localStorage.getItem('token') && setIsLogin(true)
           </ul>
         </nav>
       </div>
-      <ErrorBoundry fallback={<h1>Problem with Registration Page</h1>}>
-        <Suspense fallback={<Loader/>}>
+     
           <RegistrationForm
             setIsRegister={setIsRegister}
             setIsLogin={setIsLogin}
@@ -65,11 +62,10 @@ localStorage.getItem('token') && setIsLogin(true)
               setOpenRegi(false)
               setOpenLogin(true)
             }}
+            
             closeModal={() => setOpenRegi(false)} />
-        </Suspense>
-      </ErrorBoundry>
-      <ErrorBoundry fallback={<h1>Problem with Login Page</h1>}>
-        <Suspense fallback={<Loader/>}>
+       
+      
         <LoginForm
           setIsLogin={setIsLogin}
           setIsRegister={setIsRegister}
@@ -78,9 +74,9 @@ localStorage.getItem('token') && setIsLogin(true)
             setOpenLogin(false)
             setOpenRegi(true)
           }}
+         
           closeModal={() => setOpenLogin(false)} />
-          </Suspense>
-      </ErrorBoundry>
+         
     </>
   )
 }

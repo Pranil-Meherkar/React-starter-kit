@@ -1,0 +1,19 @@
+.back-login{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: gray;
+    cursor: pointer;
+}
+.back-login:hover{
+    color: blue;
+}
+.gif{
+    height: 100px;
+    margin: 0px 0px 0px 110px;
+}
+.content{
+    text-align: center;
+    font-size: 14px;
+    margin-top: 20px;
+}

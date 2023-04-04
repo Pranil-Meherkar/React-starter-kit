@@ -114,8 +114,18 @@ label svg{
     width: 100%;
     margin-top: 20px;
 }
+.forget-pass{
+    font-size: 14px;
+    margin-left: 190px;
+    margin-top: 2px;
+    color: blue;
+    cursor: pointer;
+}
+.forget-pass:hover{
+text-decoration: underline;
+}
 .login-div{
-    margin-top: 30px;
+    margin-top: 20px;
     width: 293px;
     margin-left: 25px;
 }
