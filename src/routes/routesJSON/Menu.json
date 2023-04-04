@@ -21,7 +21,8 @@
     "masterPanel": [
       { "id": 4, "name": "Bulk Upload", "link": "/bulk-upload" },
       { "id": 5, "name": "Profiles", "link": "/profiles" },
-      { "id": 6, "name": "Settings", "link": "/settings" }
+      { "id": 6, "name": "Settings", "link": "/settings" },
+      { "id": 7, "name": "Products", "link": "/products" }
     ]
   }
   

@@ -30,6 +30,7 @@ import Roles from './components/pages/roles/Roles';
 import Profiles from './components/pages/profiles/Profiles';
 import Settings from './components/pages/settings/Settings';
 import BulkUpload from './components/pages/bulkupload/BulkUpload';
+import Products from "./components/pages/products/Products"
 
 
 const App = () => {
@@ -62,6 +63,7 @@ const App = () => {
                 <Route path="/profiles" element={<PrivateRoute token={token} component={Profiles} />} />
                 <Route path="/settings" element={<PrivateRoute token={token} component={Settings} />} />
                 <Route path="/bulk-upload" element={<PrivateRoute token={token} component={BulkUpload} />} />
+                <Route path="/products" element={<PrivateRoute token={token} component={Products} />} />
               </Route>
               {/* <Route> */}
               {/* Public Routes */}
