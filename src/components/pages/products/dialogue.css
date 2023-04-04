@@ -1,0 +1,16 @@
+.nameError{
+    color:red;
+}
+.karatError{
+    color:red;
+}
+.weightError{
+    color:red;
+}
+.priceError{
+    color:red;
+}
+
+.removeimg{
+    cursor: pointer;
+}
