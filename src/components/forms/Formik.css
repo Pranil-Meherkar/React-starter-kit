@@ -29,7 +29,6 @@ label svg{
     /* height: 470px; */
     max-height: 550px;
     padding: 50px;
-    overflow-y: scroll;
 }
 .heading{
     margin-left: 100px;
@@ -39,6 +38,8 @@ label svg{
 }
 .form-control{
     margin-left: 30px;
+    border: 0;
+    background-color: #fff0;
 }
 
 ::-webkit-scrollbar{
