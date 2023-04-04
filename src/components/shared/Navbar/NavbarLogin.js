@@ -9,7 +9,7 @@ import Loader from '../Loader';
 const RegistrationForm = React.lazy(() => import('../../forms/RegistrationForm'));
 const LoginForm = React.lazy(()=>import('../../forms/LoginForm'))
 
-const Navbar = () => {
+const Navbar = ({setToken}) => {
   const [openLogin, setOpenLogin] = useState(false)
   const [openRegi, setOpenRegi] = useState(false)
   const [isRegister, setIsRegister] = useState(false)
@@ -58,6 +58,7 @@ localStorage.getItem('token') && setIsLogin(true)
       <ErrorBoundry fallback={<h1>Problem with Registration Page</h1>}>
         <Suspense fallback={<Loader/>}>
           <RegistrationForm
+            setToken={setToken}
             setIsRegister={setIsRegister}
             setIsLogin={setIsLogin}
             openRegi={openRegi}
@@ -71,6 +72,7 @@ localStorage.getItem('token') && setIsLogin(true)
       <ErrorBoundry fallback={<h1>Problem with Login Page</h1>}>
         <Suspense fallback={<Loader/>}>
         <LoginForm
+        setToken={setToken}
           setIsLogin={setIsLogin}
           setIsRegister={setIsRegister}
           openLogin={openLogin}

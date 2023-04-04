@@ -6,7 +6,7 @@ import { TextField } from '@mui/material'
 const Input = (props) => {
     const { label, name, icon, ...rest } = props
     return (
-        <div className='form-control'>
+        <div className='form-control' >
             <label htmlFor={name}>{icon}</label>
             <Field name={name} {...rest}>
                 {

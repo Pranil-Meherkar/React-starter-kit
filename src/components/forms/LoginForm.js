@@ -13,7 +13,7 @@ import { toast } from 'react-toastify'
 import { GOOGLE_API_URL, USERS } from '../../services/apiEndpoints'
 import { get } from '../../services/publicRequest'
 
-const LoginForm = ({ openLogin, closeModal, openRegi, setIsLogin, setIsRegister }) => {
+const LoginForm = ({ openLogin, closeModal, openRegi, setIsLogin, setIsRegister, setToken }) => {
 
     const navigate = useNavigate()
 
@@ -27,6 +27,7 @@ const LoginForm = ({ openLogin, closeModal, openRegi, setIsLogin, setIsRegister 
             })
             if (data.data.email_verified === true) {
                 localStorage.setItem('token', data.data.email)
+                setToken(data.data.email)
                 closeModal()
                 setIsLogin(true)
                 setIsRegister(true)
@@ -36,6 +37,7 @@ const LoginForm = ({ openLogin, closeModal, openRegi, setIsLogin, setIsRegister 
             }
             else {
                 localStorage.removeItem('token')
+                setToken(null)
                 toast.error('Invalid Username or Password')
             }
         }
@@ -65,6 +67,7 @@ const LoginForm = ({ openLogin, closeModal, openRegi, setIsLogin, setIsRegister 
                 if (resp.data.length > 0) {
                     if (user.password === values.password) {
                         localStorage.setItem("token", values.email)
+                        setToken(values.email)
                         navigate('/dashboard')
                         setIsLogin(true)
                         setIsRegister(true)
@@ -73,6 +76,7 @@ const LoginForm = ({ openLogin, closeModal, openRegi, setIsLogin, setIsRegister 
                     }
                     else {
                         localStorage.removeItem('token')
+                        setToken(null)
                         navigate('/')
                         toast.error('Invalid Username or Password',{autoClose:3000})
                     }

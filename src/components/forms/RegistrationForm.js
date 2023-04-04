@@ -14,7 +14,7 @@ import { GOOGLE_API_URL, USERS } from '../../services/apiEndpoints'
 import { get, post } from '../../services/publicRequest'
 // import Toaster from './shared/Toaster/Toaster'
 
-const RegistrationForm = ({ openRegi, closeModal, openLogin, setIsRegister,setIsLogin }) => {
+const RegistrationForm = ({ setToken ,openRegi, closeModal, openLogin, setIsRegister,setIsLogin }) => {
 
     const navigate = useNavigate()
     const [isSuccess, setIsSuccess] = useState(true)
@@ -35,6 +35,7 @@ const RegistrationForm = ({ openRegi, closeModal, openLogin, setIsRegister,setIs
                     post(USERS, data.data)
                     setIsRegister(true)
                     localStorage.setItem('token', data.data.email)
+                    setToken(data.data.email)
                     closeModal()
                     setIsLogin(true)
                     navigate('/dashboard')
@@ -48,7 +49,7 @@ const RegistrationForm = ({ openRegi, closeModal, openLogin, setIsRegister,setIs
                     setIsRegister(true)
                     
                     localStorage.setItem('token', data.data.email)
-                    
+                    setToken(data.data.email)
                     closeModal()
                     
                     navigate('/dashboard')

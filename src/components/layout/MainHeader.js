@@ -2,10 +2,10 @@ import React from 'react'
 import NavbarLogin from '../shared/Navbar/NavbarLogin'
 import { Outlet } from 'react-router'
 
-const MainHeader = () => {
+const MainHeader = ({setToken}) => {
   return (
     <div>
-        <NavbarLogin/>
+        <NavbarLogin setToken={setToken}/>
         <Outlet/>
     </div>
   )
