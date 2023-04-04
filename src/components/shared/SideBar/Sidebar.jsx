@@ -11,6 +11,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from '@mui/icons-material/Settings';
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import WebIcon from '@mui/icons-material/Web';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 const Sidebar = (props) => {
 
@@ -23,6 +24,7 @@ const Sidebar = (props) => {
     "Bulk Upload": <DriveFolderUploadIcon/>,
     "Profiles": <AccountCircleIcon/>,
     "Settings": <SettingsIcon/>,
+    "Products": <AddShoppingCartIcon/>
   }
 
   const headerIconComponents = {
