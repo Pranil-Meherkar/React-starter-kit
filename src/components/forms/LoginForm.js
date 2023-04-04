@@ -135,7 +135,8 @@ const LoginForm = ({ openLogin, closeModal, openRegi, setIsLogin, setIsRegister 
                                     <div className='login-div'>
                                         <Button type='submit' variant="contained" className='mui-login-btn'>Login</Button><br /></div>
                                         <div onClick={handleOpen} className='forget-pass'>Forget Password ?</div>
-                                        <ForgetPass openForget={openForget} closeModal={()=>setOpenForget(false)}/>
+                                        <ForgetPass openForget={openForget} closeModal={()=>setOpenForget(false)}
+                                        openRegi={openRegi}/>
                                     <div className='already'><div>Don't have an account?</div><div onClick={openRegi} style={{ color: 'blue', cursor: 'pointer' }}>Register</div></div>
                                 </Form>
                             }
