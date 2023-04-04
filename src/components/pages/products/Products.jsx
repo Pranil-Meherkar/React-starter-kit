@@ -9,13 +9,13 @@ import Button from "@mui/material/Button";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ReactHTMLTableToExcel from "react-html-table-to-excel";
+import { deleteRequest, get, post, put } from "../../../services/publicRequest";
+import { PRODUCT } from "../../../services/apiEndpoints";
 
 const initialValue = { name: "", karat: "", weight: "", price: "", image: "" };
 function Home() {
   const [tableData, setTableData] = useState(false);
   const [formData, setFormData] = useState(initialValue);
-  const baseurl = `http://localhost:8080`;
-  const producturl = `${baseurl}/product`;
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -29,9 +29,8 @@ function Home() {
 
   const getUsers = () => {
     setLoading(true);
-    fetch(producturl)
-      .then((resp) => resp.json())
-      .then((resp) => setTableData(resp));
+    get(PRODUCT)
+      .then((resp) => setTableData(resp.data));
   };
 
   const indexOfLastProduct = currentPage * productsPerPage;
@@ -41,30 +40,16 @@ function Home() {
 
   const handleFormSubmit = () => {
     if (formData.id) {
-      fetch(producturl + `/${formData.id}`, {
-        method: "PUT",
-        body: JSON.stringify(formData),
-        headers: {
-          "content-type": "application/json",
-        },
-      })
-        .then((resp) => resp.json())
+      put(PRODUCT, formData.id, formData)
         .then((resp) => {
           alert("product is updated");
           handleClose();
           getUsers();
         });
     } else {
-      fetch(producturl, {
-        method: "POST",
-        body: JSON.stringify(formData),
-        headers: {
-          "content-type": "application/json",
-        },
-      })
-        .then((resp) => resp.json())
+      post(PRODUCT, formData)
         .then((resp) => {
-          console.log("resp" + JSON.stringify(resp.name.length));
+          console.log("resp" + JSON.stringify(resp.data.name.length));
 
           handleClose();
           getUsers();
@@ -79,8 +64,7 @@ function Home() {
       id
     );
     if (confirm) {
-      fetch(producturl + `/${id}`, { method: "DELETE" })
-        .then((resp) => resp.json())
+      deleteRequest(PRODUCT, id)
         .then((resp) => getUsers());
     }
   };
