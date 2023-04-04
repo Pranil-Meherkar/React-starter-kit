@@ -3,6 +3,10 @@
     font-size: 2rem;
 }
 
+.roles-heading{
+    margin-bottom: 0;
+}
+
 .add-role{
     font-size: 1.1rem;
     background-color: #d5ddf0;
@@ -19,6 +23,7 @@
     padding: 0 30vh;
     margin-top: 10vh;
     font-size: 1rem;  
+    text-align: center;
 }
 .table{
     border-radius: 7.5px;
