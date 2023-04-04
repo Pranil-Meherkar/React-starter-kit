@@ -60,9 +60,9 @@ html {
 .sidebar__ul--2::-webkit-scrollbar {
   display: none;
 }
-/* .sidebar__ul--2:hover::-webkit-scrollbar {
+.sidebar__ul--2:hover::-webkit-scrollbar {
   display: block;
-} */
+}
 .sidebar__ul--2 ::-webkit-scrollbar-track {
   border-radius: 0rem;
 }
