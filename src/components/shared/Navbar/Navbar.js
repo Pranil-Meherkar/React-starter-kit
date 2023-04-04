@@ -37,7 +37,7 @@ localStorage.getItem('token') && setIsLogin(true)
   return (
     <>
       <div className='nav-main'>
-        <nav className='nav bg-light'>
+        <nav className='nav'>
           <div className='logo'>LOGO</div>
           <ul>
             
