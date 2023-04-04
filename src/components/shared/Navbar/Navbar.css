@@ -15,6 +15,7 @@
     justify-content: space-between;
     padding: 0 1rem;
     border-bottom: 1px solid #ddd;   
+    background-color: #F8F9FA;
 }
 .nav ul{
     display: flex;
