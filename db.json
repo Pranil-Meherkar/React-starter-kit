@@ -139,10 +139,10 @@
   ],
   "permissions": [
     {
-      "id": 3,
       "permission": "update title",
       "description": "change the title",
-      "roles": "TEST"
+      "roles": "ADMIN",
+      "id": 4
     }
   ]
 }

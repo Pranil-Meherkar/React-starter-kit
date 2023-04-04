@@ -27,7 +27,7 @@ const ConfirmDeleteModal = ({
         <div className="modal-dialog">
           <div
             className="modal-content"
-            style={{ marginTop: "20vh", width: "30vw", fontSize: "1.5rem" }}
+            style={{ marginTop: "20vh", width: "30vw", fontSize: "0.92rem" }}
           >
             <div className="modal-header">
               <button

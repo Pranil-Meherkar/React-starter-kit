@@ -77,7 +77,7 @@ const Sidebar = (props) => {
                 temp[header.id -1] = !temp[header.id -1]
                 setShowSubMenuItems([...temp])
               }}>
-                <p className="sidebar__ul--li-title"><span style={{marginRight: "10px", cursor:"pointer", userSelect:"none"}}>{headerIconComponents[header.masterName]}</span> 
+                <p className="sidebar__ul--li-title"><span style={{ cursor:"pointer", userSelect:"none"}}>{headerIconComponents[header.masterName]}</span> 
                 {!hideSidebar && (
                  ` ${header.masterName} `
                 )}
@@ -98,7 +98,7 @@ const Sidebar = (props) => {
                         style={{
                           backgroundColor: "#63B8EC",
                           color: "white",
-                          padding: "0.3125rem",
+                          // padding: "0.3125rem",
                           borderRadius: "50px",
                         }}
                       >
