@@ -12,6 +12,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from './components/shared/Loader';
 import PrivateRoute from './routes/PrivateRoute';
+import PublicRoute from './routes/PublicRoute';
 
 
 
@@ -47,14 +48,7 @@ const App = () => {
     <GoogleOAuthProvider clientId="247734515468-1caral148vs24evoub2at4hb7ncugtb4.apps.googleusercontent.com">
       <ThemeProvider theme={theme}>
         <div>
-          <Routes>
 
-            <Route path='/' element={<MainHeader />}>
-              <Route path='/dashboard' element={<ProtectedRoutes Component={Dashboard} />} />
-              <Route path='/test' element={<TestPage />} />
-              <Route path='*' element={<Error />} />
-            </Route>
-          </Routes>
 
           <Suspense fallback={<Loader />}>
             <Routes>
@@ -70,11 +64,21 @@ const App = () => {
                 <Route path="/bulk-upload" element={<PrivateRoute token={token} component={BulkUpload} />} />
               </Route>
               {/* <Route> */}
-                {/* Public Routes */}
-                {/* <Route path="/" element={<PublicRoute token={token} setToken={setToken} component={Login} />} />
+              {/* Public Routes */}
+              {/* <Route path="/" element={<PublicRoute token={token} setToken={setToken} component={Login} />} />
               </Route> */}
+              <Route path='/' element={<PublicRoute token={token} setToken={setToken} component={MainHeader} />}>
+                {/* <Route path='/dashboard' element={<ProtectedRoutes Component={Dashboard} />} /> */}
+                <Route path='/test' element={<TestPage />} />
+
+                <Route path='*' element={<Error />} />
+              </Route>
             </Routes>
           </Suspense>
+          {/* <Routes>
+         
+            
+          </Routes> */}
         </div>
       </ThemeProvider>
     </GoogleOAuthProvider>
