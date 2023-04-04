@@ -48,7 +48,7 @@ html {
 }
 .sidebar__ul--1 {
   margin: 0;
-  padding:30px;
+  padding:10px;
 }
 .sidebar__ul--2 {
   height: 92vh;
@@ -85,7 +85,8 @@ html {
 .sidebar__ul--li-head-span {
   display: grid;
   justify-self: end;
-  margin-left: 100px;
+  cursor: pointer;
+  margin-left: 150px;
 }
 
 .sidebar__ul--li-head-span.small {

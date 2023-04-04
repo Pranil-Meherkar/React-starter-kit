@@ -63,7 +63,7 @@ const Sidebar = (props) => {
               <div style={{ marginTop: "5vh"}}>
                 <KeyboardArrowLeftIcon
                   onClick={handleHideSidebar}
-                  fontSize="large"
+                  fontSize="medium"
                 />
               </div>
             )}
