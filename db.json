@@ -119,5 +119,30 @@
     {
       "name": "Forth"
     }
+  ],
+  "roles-data": [
+    {
+      "id": 5,
+      "role": "TEST",
+      "description": "tester"
+    },
+    {
+      "role": "ADMIN",
+      "description": "administrator",
+      "id": 6
+    },
+    {
+      "role": "USER",
+      "description": "user",
+      "id": 7
+    }
+  ],
+  "permissions": [
+    {
+      "id": 3,
+      "permission": "update title",
+      "description": "change the title",
+      "roles": "TEST"
+    }
   ]
 }
