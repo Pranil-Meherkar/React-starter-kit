@@ -29,6 +29,7 @@ label svg{
     /* height: 590px; */
     max-height: 450px;
     padding: 50px;
+    overflow-y: scroll;
 }
 .heading{
     margin-left: 100px;
