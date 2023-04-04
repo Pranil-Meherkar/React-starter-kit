@@ -48,7 +48,7 @@ const ProfileModal = ({ username, setToken}) => {
         </div>
         <div
           className="profile-details"
-          style={{ fontSize: "1.5rem", marginTop: "10px"}}
+          style={{ fontSize: "0.92rem", marginTop: "10px"}}
         >
           <p>{username}</p>
           <button className="btn btn-primary">Manage Profile</button>

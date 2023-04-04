@@ -2,7 +2,8 @@ import React, {useState} from "react";
 
 const customStyles = {
   paddingLeft: "30px",
-  fontSize: "1.75rem",
+  fontSize: "1.1rem",
+  borderBottom: "1px solid #ddd"
 };
 
 const Navbar = ({ username, openModal, setOpenModal}) => {
@@ -14,7 +15,7 @@ const Navbar = ({ username, openModal, setOpenModal}) => {
       
       <div className="collapse navbar-collapse" id="navbarNav" style={{display: "flex", justifyContent:"right"}}>
         <ul className="navbar-nav ml-auto">
-          <li style={{paddingRight: "20px", fontSize:"1.35rem", paddingTop:"5px"}}>
+          <li style={{paddingRight: "20px", fontSize:".84rem", paddingTop:"5px"}}>
             <p>Hi {username} !</p>
           </li>
           <li className="nav-item active">
@@ -31,7 +32,7 @@ const Navbar = ({ username, openModal, setOpenModal}) => {
             <div onClick={() => {
               setOpenModal(!openModal)
             }} 
-            style={{ width: "30px", height:"30px", borderRadius:"15px", backgroundColor:"skyblue", marginRight:"20px", userSelect:"none", cursor:"pointer"}}>
+            style={{ width: "30px", height:"30px", borderRadius:"15px", backgroundColor:"skyblue", marginRight:"20px", userSelect:"none", cursor:"pointer", textAlign:"center"}}>
               <p>{username && username[0].toUpperCase()}</p>
             </div>
           </li>

@@ -99,7 +99,7 @@ const AddRoleModal = ({getRolesData, setMyRef,loadData,setLoadValues}) => {
         aria-hidden="true"
       >
         <div className="modal-dialog">
-          <div className="modal-content" style={{marginTop:"20vh",width:"30vw",fontSize:"1.5rem", /*backgroundColor:"#99a3bd"*/}}>
+          <div className="modal-content" style={{marginTop:"20vh",width:"30vw",fontSize:"0.92rem", /*backgroundColor:"#99a3bd"*/}}>
             <div className="modal-header" >
               <h1 className="modal-title fs-5" id="exampleModalLabel" >
                 {(loadData? "Edit": "Add") +" Role"}
@@ -133,9 +133,9 @@ const AddRoleModal = ({getRolesData, setMyRef,loadData,setLoadValues}) => {
                         })
                     }}
                     placeholder="Enter Role"
-                    style={{height:"35px", fontSize:"1.2rem"}}
+                    style={{height:"35px", fontSize:"0.85rem"}}
                   />
-                  {errors.role && <p style={{color:"red", fontSize:"1.25rem"}}>{errors.role}</p>}
+                  {errors.role && <p style={{color:"red", fontSize:"0.85rem"}}>{errors.role}</p>}
                 </div><br />
                 <div className="form-group">
                   <label htmlFor="role-description">Description<Required/></label>
@@ -151,12 +151,12 @@ const AddRoleModal = ({getRolesData, setMyRef,loadData,setLoadValues}) => {
                         })
                     }}
                     placeholder="Enter Description"
-                    style={{height:"35px", fontSize:"1.2rem"}}
+                    style={{height:"35px", fontSize:"0.85rem"}}
                   />
-                  {errors.description && <p style={{color:"red", fontSize:"1.25rem"}}>{errors.description}</p>}
+                  {errors.description && <p style={{color:"red", fontSize:"0.85rem"}}>{errors.description}</p>}
                 </div><br />
                 <div style={{display:"flex", justifyContent:"right"}}>
-                  <button type="submit" className="btn btn-primary" style={{fontSize:"1.3rem", padding: "10px", marginRight:"10px"}}
+                  <button type="submit" className="btn btn-primary" style={{fontSize:"0.9rem", padding: "10px", marginRight:"10px"}}
                     onClick={handleSubmit}  
                   >
                     {(loadData? "Edit": "Add") + " Role"}

@@ -100,7 +100,7 @@ const AddPermissionsModal = ({
         <div className="modal-dialog">
           <div
             className="modal-content"
-            style={{ marginTop: "20vh", width: "30vw", fontSize: "1.5rem" }}
+            style={{ marginTop: "20vh", width: "30vw", fontSize: "0.92rem" }}
           >
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="exampleModalLabel">
@@ -139,10 +139,10 @@ const AddPermissionsModal = ({
                         });
                       }}
                       placeholder="Enter Role"
-                      style={{ height: "35px", fontSize: "1.2rem" }}
+                      style={{ height: "35px", fontSize: "0.85rem" }}
                     />
                     {errors.permission && (
-                      <p style={{ color: "red", fontSize: "1.25rem" }}>
+                      <p style={{ color: "red", fontSize: "0.85rem" }}>
                         {errors.permission}
                       </p>
                     )}
@@ -165,10 +165,10 @@ const AddPermissionsModal = ({
                         });
                       }}
                       placeholder="Enter Description"
-                      style={{ height: "35px", fontSize: "1.2rem" }}
+                      style={{ height: "35px", fontSize: "0.85rem" }}
                     />
                     {errors.description && (
-                      <p style={{ color: "red", fontSize: "1.25rem" }}>
+                      <p style={{ color: "red", fontSize: "0.85rem" }}>
                         {errors.description}
                       </p>
                     )}
@@ -189,7 +189,7 @@ const AddPermissionsModal = ({
                         });
                       }}
                       aria-label="Default select example"
-                      style={{ height: "35px", fontSize: "1.2rem" }}
+                      style={{ height: "35px", fontSize: "0.85rem", width: "92.5%"}}
                     >
                       <option selected value="">Select roles</option>
                       {rolesData &&
@@ -202,7 +202,7 @@ const AddPermissionsModal = ({
                         })}
                     </select>
                     {errors.roles && (
-                      <p style={{ color: "red", fontSize: "1.25rem" }}>
+                      <p style={{ color: "red", fontSize: "0.85rem" }}>
                         {errors.roles}
                       </p>
                     )}
@@ -212,7 +212,7 @@ const AddPermissionsModal = ({
                     <button
                       type="submit"
                       className="btn btn-primary"
-                      style={{ fontSize: "1.3rem", padding: "10px", marginRight:"10px" }}
+                      style={{ fontSize: "0.9rem", padding: "10px", marginRight:"10px" }}
                       onClick={handleSubmit}
                     >
                       {(loadData ? "Edit" : "Add") + " Permissions"}

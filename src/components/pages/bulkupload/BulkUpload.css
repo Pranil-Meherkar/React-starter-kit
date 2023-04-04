@@ -1,23 +1,27 @@
 .bulkUpload{
     padding: 0 10vw;
-    font-size: 2.5rem;
+    font-size: 1.6rem;
     width: 60vw;
     margin:auto
 }
 
+.form-control{
+    margin: 20px 0;
+}
+
 .bulkUpload-form{
-    box-shadow: 1px 1px 2px #aaa;
     padding: 0 20px;
     border-radius: 10px;
-    width: 40vw;
+    /* width: 40vw; */
     margin: auto;
 }
 
 .upload-error{
     color: red;
-    font-size: 1.2rem;
+    margin-top: 5px;
+    font-size: .82rem;
 }
 
 .upload-label{
-    font-size: 1.75rem;
+    font-size: 1.1rem;
 }
