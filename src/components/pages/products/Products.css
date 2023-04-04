@@ -45,7 +45,7 @@ justify-content: center;
    margin-top: 2% !important;
    width:99%;
    display:flex;
-   justify-content: center;
+   justify-content: space-between;
    align-items: center;
 }
 .addproduct-div{
@@ -79,7 +79,7 @@ td{
     padding: 1.5% !important;
 }
 .title-product{
-    /* font-family: 'Sora', sans-serif; */
+    font-family: 'Sora', sans-serif;
     font-size: 25px;
     text-transform: uppercase;
     /* letter-spacing: 1.5px; */
@@ -129,5 +129,9 @@ td{
 }
  .head-id{
     color: #787878 !important;
+ }
+
+ .download-table-xls-button{
+    height: 30px;
  }
  /* #787878 */

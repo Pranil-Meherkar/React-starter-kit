@@ -8,25 +8,24 @@ import FormDialogue from "./Dialog";
 import Button from "@mui/material/Button";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
 
 const initialValue = { name: "", karat: "", weight: "", price: "", image: "" };
 function Home() {
   const [tableData, setTableData] = useState(false);
   const [formData, setFormData] = useState(initialValue);
-  const baseurl=`http://localhost:8080`;
+  const baseurl = `http://localhost:8080`;
   const producturl = `${baseurl}/product`;
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage, setProductsPerPage] = useState(6);
- const [edit,setEdit]=useState(false)
- const [value,setValue]=useState("");
+  const [edit, setEdit] = useState(false);
+  const [value, setValue] = useState("");
 
   useEffect(() => {
     getUsers();
   }, []);
-  
 
   const getUsers = () => {
     setLoading(true);
@@ -40,7 +39,6 @@ function Home() {
   const currentProducts =
     tableData && tableData.slice(indexOfFirstProduct, indexOfLastProduct);
 
-  
   const handleFormSubmit = () => {
     if (formData.id) {
       fetch(producturl + `/${formData.id}`, {
@@ -52,10 +50,10 @@ function Home() {
       })
         .then((resp) => resp.json())
         .then((resp) => {
-          alert("product is updated")
+          alert("product is updated");
           handleClose();
           getUsers();
-        })
+        });
     } else {
       fetch(producturl, {
         method: "POST",
@@ -68,14 +66,10 @@ function Home() {
         .then((resp) => {
           console.log("resp" + JSON.stringify(resp.name.length));
 
-          
           handleClose();
           getUsers();
           alert("Product added successfully");
-          
-        })
-
-       
+        });
     }
   };
 
@@ -97,7 +91,7 @@ function Home() {
 
   const removeImage = (image) => {
     console.log("mmmmm" + tableData);
-   
+
     setFormData({
       ...formData,
       image: "",
@@ -155,20 +149,23 @@ function Home() {
     setCurrentPage(pageNumber);
   };
 
-
   return (
     <>
-      <div  class="row justify-content-md-end top-div">
-
-        <div class="col-lg-3">
-          <p className="title-product ">Products List</p>
-        </div>
-
-        <div  class="col-lg-2 addproduct-div text-end">
-      
+      <div
+        className="products-header"
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          padding: "7vh 5vw",
+          borderRadius: "5px",
+          fontSize: "2rem"
+        }}
+      >
+        <p className="products-heading">Products Data</p>
+        <div style={{width: "40%",display: "flex", justifyContent:"space-around"}}>
           <Button
             size="small"
-            style={{marginLeft:"25px"}}
+            style={{ marginLeft: "25px", height: "40px"}}
             className="btn-addproduct mb-2"
             onClick={handleClickOpen}
             variant="outlined"
@@ -176,85 +173,95 @@ function Home() {
           >
             Add Product
           </Button>
+          <ReactHTMLTableToExcel
+            id="test-table-xls-button"
+            className="download-table-xls-button btn btn-sm btn-outline-primary text-start mb-2"
+            table="table-to-xls"
+            filename="tablexls"
+            sheet="tablexls"
+            buttonText="DOWNLOAD AS XLS"
+          />
         </div>
 
-        <div style={{width:"170px"}} class="col-lg-2 text-end "> 
-        <ReactHTMLTableToExcel
-      
-                    id="test-table-xls-button"
-                    className="download-table-xls-button btn btn-sm btn-outline-primary text-start mb-2"
-                    table="table-to-xls"
-                    filename="tablexls"
-                    sheet="tablexls"
-                    buttonText="DOWNLOAD AS XLS"
-          
-                    />
-        </div>
-       
+        {/* <button onClick={handleAdd} className="add-role" >Add Role</button> */}
       </div>
 
       <div>
-        <table id="table-to-xls" className="table table-bordered caption-top producttable">
+        <table
+          id="table-to-xls"
+          className="table table-bordered caption-top producttable"
+        >
           <thead>
             <tr>
               <th className="head1" scope="col-lg-1">
-               Image uploaded?
+                IMAGE UPLOADED
               </th>
-              <th className="head" scope="col">ID</th>
-              <th className="head" scope="col">NAME</th>
-              <th className="head" scope="col">KARAT</th>
-              <th className="head" scope="col">WEIGHT</th>
-              <th className="head" scope="col">PRICE</th>
-              <th className="head" scope="col">IMAGE</th>
-              <th className="head" scope="col">ACTIONS</th>
+              <th className="head" scope="col">
+                ID
+              </th>
+              <th className="head" scope="col">
+                NAME
+              </th>
+              <th className="head" scope="col">
+                CARAT
+              </th>
+              <th className="head" scope="col">
+                WEIGHT
+              </th>
+              <th className="head" scope="col">
+                PRICE
+              </th>
+              <th className="head" scope="col">
+                IMAGE
+              </th>
+              <th className="head" scope="col">
+                ACTIONS
+              </th>
             </tr>
           </thead>
           <tbody>
-            {
-           
-              currentProducts &&
-                currentProducts.map((item) => (
-                  <tr key={item?.id}>
-                    <>
-                      <th scope="row">
-                        {" "}
-                        <input
-                          type="checkbox"
-                          checked={item.image ? true : false}
-                        />
-                      </th>
+            {currentProducts &&
+              currentProducts.map((item) => (
+                <tr key={item?.id}>
+                  <>
+                    <th scope="row">
+                      {" "}
+                      <input
+                        type="checkbox"
+                        checked={item.image ? true : false}
+                      />
+                    </th>
 
-                      <th className="head-id" scope="row">{item?.id}</th>
-                      <td>{item?.name}</td>
-                      <td>{item?.karat}</td>
-                      <td>{item?.weight}</td>
-                      <td>{item?.price}</td>
-                      <td>
-                        <img
-                          src={item.image.length > 0 ? item.image : ""}
-                          height="20px"
-                        />
-                      </td>
-                      <td>
-                       
-                        <DeleteIcon
-                          onClick={() => handleDelete(item.id)}
-                          size="small"
-                          color="error"
-                        />
-                      
-                        <EditIcon
-                          className="editicon"
-                          onClick={() => handleUpdate(item)}
-                          size="small"
-                          color="primary"
-                        />
-                       
-                      </td>
-                    </>
-                  </tr>
-                ))
-            }
+                    <th className="head-id" scope="row">
+                      {item?.id}
+                    </th>
+                    <td>{item?.name}</td>
+                    <td>{item?.karat}</td>
+                    <td>{item?.weight}</td>
+                    <td>{item?.price}</td>
+                    <td>
+                      <img
+                        src={item.image.length > 0 ? item.image : ""}
+                        height="20px"
+                      />
+                    </td>
+                    <td>
+                      <DeleteIcon
+                        onClick={() => handleDelete(item.id)}
+                        size="small"
+                        color="error"
+                      />
+
+                      <EditIcon
+                        className="editicon"
+                        onClick={() => handleUpdate(item)}
+                        size="small"
+                        color="primary"
+                      />
+                    </td>
+                  </>
+                </tr>
+              ))}
           </tbody>
         </table>
         <FormDialogue
@@ -267,26 +274,25 @@ function Home() {
           removeImage={removeImage}
         />
 
-       
         <div>
           <nav className="pagination pagination-sm">
             <ul>
               <span
-             
                 onClick={() => selectPageHandler(currentPage - 1)}
                 className={currentPage > 1 ? "" : "pagination__disable"}
               >
                 <ArrowBackIosIcon fontSize="5px" size="small" color="action" />
               </span>
-              {pageNumbers.map((number,i) => (
+              {pageNumbers.map((number, i) => (
                 <>
-                  <li  key={number} className="page-item">
+                  <li key={number} className="page-item">
                     <NavLink
-                  
                       onClick={() => paginate(number)}
                       href="!#"
-                      
-                      className={["page-link",currentPage === i + 1 ? "pagination__selected" : ""].join(" ")}
+                      className={[
+                        "page-link",
+                        currentPage === i + 1 ? "pagination__selected" : "",
+                      ].join(" ")}
                     >
                       {number}
                     </NavLink>
@@ -301,7 +307,11 @@ function Home() {
                     : "pagination__disable"
                 }
               >
-                <ArrowForwardIosIcon fontSize="5px" color="action" size="small"/>
+                <ArrowForwardIosIcon
+                  fontSize="5px"
+                  color="action"
+                  size="small"
+                />
               </span>
             </ul>
           </nav>
