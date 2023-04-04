@@ -6,7 +6,7 @@
 }
 
 .form-control{
-    margin: 20px 0;
+    margin: 20px 0 10px;
 }
 
 .bulkUpload-form{
@@ -18,8 +18,8 @@
 
 .upload-error{
     color: red;
-    margin-top: 5px;
-    font-size: .82rem;
+    /* margin-top: 1px; */
+    font-size: .75rem;
 }
 
 .upload-label{

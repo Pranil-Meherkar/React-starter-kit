@@ -30,9 +30,12 @@ const BulkUploadModal = () => {
         <div className="modal-dialog">
           <div
             className="modal-content"
-            style={{ marginTop: "20vh", fontSize: "1.5rem" }}
+            style={{ marginTop: "20vh", fontSize: "1.2rem" }}
           >
             <div className="modal-header">
+            <h1 className="modal-title fs-5" id="exampleModalLabel">
+                Bulk Upload
+              </h1>
               <button
                 type="button"
                 className="btn-close"
@@ -43,7 +46,7 @@ const BulkUploadModal = () => {
             <div className="modal-body">
               <div className="bulkUpload-form">
                 <div className="form-group" style={{ marginTop: "20px"}}>
-                  <label htmlFor="upload-file" className="upload-label">
+                  <label htmlFor="upload-file" className="upload-label" style={{fontSize: ".9rem"}}>
                     Upload Excel File
                     <Required />
                   </label>
@@ -62,7 +65,7 @@ const BulkUploadModal = () => {
                         uploadRef.current.value = "";
                       }
                     }}
-                    style={{ width: "80%" }}
+                    style={{ width: "80%", fontSize: ".9rem" }}
                   />
                   <p className="upload-error">{error}</p>
                   <div
