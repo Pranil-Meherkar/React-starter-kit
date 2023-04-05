@@ -1,10 +1,11 @@
 import { ErrorMessage, Field } from 'formik'
 import React from 'react'
-import TextError from '../shared/TextError'
+import TextError from '../shared/TextError/TextError'
 
 const TextArea = (props) => {
     const { label, name, ...rest } = props
     return (
+        <>
         <div className='input-control'>
             <label htmlFor={name}>{label}</label>
             <Field
@@ -14,8 +15,10 @@ const TextArea = (props) => {
                 {...rest}
                 className='field'
             />
-            <ErrorMessage name={name} component={TextError} />
+            
         </div>
+        <ErrorMessage name={name} component={TextError} />
+        </>
     )
 }
 

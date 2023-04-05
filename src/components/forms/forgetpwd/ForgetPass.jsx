@@ -1,13 +1,13 @@
 
-import ForgetPassGif from '../../assets/gifs/gif-resetpass.gif'
+import ForgetPassGif from '../../../assets/gifs/gif-resetpass.gif'
 import ReactDOM from 'react-dom'
 import { Formik,Form } from 'formik'
-import FormikControl from '../formikcontrols/FormikControl'
+import FormikControl from '../../formikcontrols/FormikControl'
 import { Button } from '@mui/material'
 import * as Yup from 'yup'
 import './ForgetPass.css'
-import { USERS } from '../../services/apiEndpoints'
-import { get } from '../../services/publicRequest'
+import { USERS } from '../../../services/apiEndpoints'
+import { get } from '../../../services/publicRequest'
 import { toast } from 'react-toastify'
 
 const ForgetPass = ({ openForget, closeModal, openRegi}) => {

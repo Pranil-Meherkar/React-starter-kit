@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import ChangePwd from "../../forms/changepwd/ChangePwd";
 
 const customStyles = {
   paddingLeft: "30px",
@@ -11,8 +12,7 @@ const Navbar = ({ username, openModal, setOpenModal}) => {
     <nav
       className="navbar navbar-expand-lg navbar-light bg-light"
       style={customStyles}
-    >
-      
+    > 
       <div className="collapse navbar-collapse" id="navbarNav" style={{display: "flex", justifyContent:"right"}}>
         <ul className="navbar-nav">
           <li style={{paddingRight: "20px", fontSize:".84rem", paddingTop:"5px"}}>

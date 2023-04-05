@@ -1,11 +1,12 @@
 import React from 'react'
 import { Field, ErrorMessage } from 'formik'
-import TextError from '../shared/TextError'
+import TextError from '../shared/TextError/TextError'
 import { TextField } from '@mui/material'
 
 const Input = (props) => {
     const { label, name, icon, ...rest } = props
     return (
+        <>
         <div className='input-control'>
             <label htmlFor={name}>{icon}</label>
             <Field name={name} {...rest}>
@@ -24,8 +25,10 @@ const Input = (props) => {
                     }
                 }
             </Field>
-            <ErrorMessage name={name} component={TextError}/>
+            
         </div>
+        <ErrorMessage name={name} component={TextError}/>
+        </>
     )
 }
 

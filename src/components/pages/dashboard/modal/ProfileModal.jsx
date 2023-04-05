@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
-const ProfileModal = ({ username, setToken}) => {
+const ProfileModal = ({ setOpenModal,setOpenChangePwd ,username, setToken}) => {
   const [profilePic, setProfilePic] = useState(null);
 
   const logout = () => {
@@ -51,7 +51,10 @@ const ProfileModal = ({ username, setToken}) => {
           style={{ fontSize: "0.92rem", marginTop: "10px"}}
         >
           <p>{username}</p>
-          <button className="btn btn-primary">Manage Profile</button>
+          <button className="btn btn-primary" onClick={() => {
+            setOpenChangePwd(true)
+            setOpenModal(false)
+          }}>Change Password</button>
         </div>
       </div>
       <div style={{display:"flex", justifyContent:"right", padding:"15px 30px", backgroundColor: "#eee", borderRadius:"0 0 5px 5px"}}>

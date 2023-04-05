@@ -1,7 +1,7 @@
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
-import FormikControl from '../formikcontrols/FormikControl'
-import './Formik.css'
+import FormikControl from '../../formikcontrols/FormikControl'
+import './RegistrationForm.css'
 import ReactDOM from 'react-dom'
 import { Button } from '@mui/material'
 import { useGoogleLogin } from '@react-oauth/google';
@@ -10,14 +10,15 @@ import axios from 'axios'
 import { useNavigate } from 'react-router'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
-import { GOOGLE_API_URL, USERS } from '../../services/apiEndpoints'
-import { get, post } from '../../services/publicRequest'
+import { GOOGLE_API_URL, USERS } from '../../../services/apiEndpoints'
+import { get, post } from '../../../services/publicRequest'
+import { PHONEREGEX,EMAILREGEX } from '../../../utils/regEx'
 // import Toaster from './shared/Toaster/Toaster'
 
 const RegistrationForm = ({ setToken ,openRegi, closeModal, openLogin, setIsRegister,setIsLogin }) => {
 
     const navigate = useNavigate()
-    const [isSuccess, setIsSuccess] = useState(true)
+    
 
 
     const login = useGoogleLogin({
@@ -79,7 +80,7 @@ const RegistrationForm = ({ setToken ,openRegi, closeModal, openLogin, setIsRegi
     const checkboxOptions = [
         { key: `I agree all terms and conditions`, value: 'accepted' }
     ]
-    const phoneRegExp = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/
+    
 
     const initialValues = {
         email: '',
@@ -90,10 +91,10 @@ const RegistrationForm = ({ setToken ,openRegi, closeModal, openLogin, setIsRegi
     }
 
     const validationSchema = Yup.object({
-        email: Yup.string().email('Invalid email format...!').required('This field is required...!'),
-        password: Yup.string().required('This field is required...!'),
+        email: Yup.string().required('This field is required...!').matches(EMAILREGEX, 'Email ID is not valid'),
+        password: Yup.string().required('This field is required...!').min(8,'Password should be of minimum 8 chars'),
         confirmPassword: Yup.string().oneOf([Yup.ref('password'), ''], `Password did'nt match`).required('This Field is required...!'),
-        mobNo: Yup.string().required('This field is required...!').matches(phoneRegExp, 'Phone number is not valid'),
+        mobNo: Yup.string().required('This field is required...!').matches(PHONEREGEX, 'Phone number is not valid'),
         terms: Yup.array().required('This field is required...!')
     })
 
@@ -106,9 +107,8 @@ const RegistrationForm = ({ setToken ,openRegi, closeModal, openLogin, setIsRegi
         const postUser = () => {
             post(USERS, values)
             setIsRegister(true)
-            setIsSuccess(true)
             openLogin()
-            toast.success(`User Login Successfully
+            toast.success(`User Register Successfully
                             Please Login`,{autoClose:3000})
         }
 
@@ -135,10 +135,12 @@ const RegistrationForm = ({ setToken ,openRegi, closeModal, openLogin, setIsRegi
 
     return ReactDOM.createPortal(
         <>
-            <div className='main'>
-                <div className='form-card'>
-                    <p onClick={closeModal} className='close-btn'><i className="fa-solid fa-xmark fa-lg"></i></p>
-                    <h2 className='heading'>Registration</h2>
+            <div className='main-regi-form'>
+            <div className='heading'><h2 >Registration</h2></div>
+            <p onClick={closeModal} className='close-btn'><i className="fa-solid fa-xmark fa-lg"></i></p>
+                <div className='regi-form-card'>
+                    
+                    
                     <Formik
                         initialValues={initialValues}
                         validationSchema={validationSchema}
@@ -182,7 +184,7 @@ const RegistrationForm = ({ setToken ,openRegi, closeModal, openLogin, setIsRegi
                                         name='terms'
                                         options={checkboxOptions}
                                     />
-                                    <div className='modal-btn'>
+                                    <div className='regi-btn'>
                                         <Button type='submit' variant="contained" className='mui-btn'>Register</Button><br /></div>
 
                                     <div className='already'><div >Already have an account?</div><div onClick={openLogin} style={{ color: 'blue', cursor: 'pointer' }}>Login</div></div>
@@ -191,7 +193,7 @@ const RegistrationForm = ({ setToken ,openRegi, closeModal, openLogin, setIsRegi
                         }
 
                     </Formik>
-                    <div>------------------OR------------------</div>
+                    <div><hr/>OR<hr/></div>
 
                     <GoogleButton onClick={login} className="google-btn" />
 
