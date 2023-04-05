@@ -14,7 +14,7 @@ import { GOOGLE_API_URL, USERS } from '../../services/apiEndpoints'
 import { get } from '../../services/publicRequest'
 import ForgetPass from './ForgetPass'
 
-const LoginForm = ({ openLogin, closeModal, openRegi, setIsLogin, setIsRegister }) => {
+const LoginForm = ({ openLogin,setToken, closeModal, openRegi, setIsLogin, setIsRegister }) => {
     const [openForget, setOpenForget] = useState(false)
     
     const navigate = useNavigate()
