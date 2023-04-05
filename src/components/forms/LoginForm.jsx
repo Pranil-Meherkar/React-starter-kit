@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router'
 import { toast } from 'react-toastify'
 import { GOOGLE_API_URL, USERS } from '../../services/apiEndpoints'
 import { get } from '../../services/publicRequest'
-import ForgetPass from './ForgetPass'
+import ForgetPass from './forgetpwd/ForgetPass'
 
 const LoginForm = ({ openLogin, closeModal, openRegi, setIsLogin, setIsRegister }) => {
     const [openForget, setOpenForget] = useState(false)
@@ -104,7 +104,7 @@ const LoginForm = ({ openLogin, closeModal, openRegi, setIsLogin, setIsRegister 
 
     return ReactDOM.createPortal(
         <>
-            <div className='main'>
+            <div className='main-form'>
                 <div className='form-card'>
                     <p onClick={closeModal} className='close-btn'><i className="fa-solid fa-xmark fa-lg"></i></p>
                     <h2 style={{ marginLeft: '140px' }}>Login</h2>

@@ -17,7 +17,7 @@ import { get, post } from '../../services/publicRequest'
 const RegistrationForm = ({ openRegi, closeModal, openLogin, setIsRegister,setIsLogin }) => {
 
     const navigate = useNavigate()
-    const [isSuccess, setIsSuccess] = useState(true)
+    
 
 
     const login = useGoogleLogin({
@@ -90,7 +90,7 @@ const RegistrationForm = ({ openRegi, closeModal, openLogin, setIsRegister,setIs
 
     const validationSchema = Yup.object({
         email: Yup.string().email('Invalid email format...!').required('This field is required...!'),
-        password: Yup.string().required('This field is required...!'),
+        password: Yup.string().required('This field is required...!').min(8,'Password should be of minimum 8 chars'),
         confirmPassword: Yup.string().oneOf([Yup.ref('password'), ''], `Password did'nt match`).required('This Field is required...!'),
         mobNo: Yup.string().required('This field is required...!').matches(phoneRegExp, 'Phone number is not valid'),
         terms: Yup.array().required('This field is required...!')
@@ -105,9 +105,8 @@ const RegistrationForm = ({ openRegi, closeModal, openLogin, setIsRegister,setIs
         const postUser = () => {
             post(USERS, values)
             setIsRegister(true)
-            setIsSuccess(true)
             openLogin()
-            toast.success(`User Login Successfully
+            toast.success(`User Register Successfully
                             Please Login`,{autoClose:3000})
         }
 
@@ -134,7 +133,7 @@ const RegistrationForm = ({ openRegi, closeModal, openLogin, setIsRegister,setIs
 
     return ReactDOM.createPortal(
         <>
-            <div className='main'>
+            <div className='main-form'>
                 <div className='form-card'>
                     <p onClick={closeModal} className='close-btn'><i className="fa-solid fa-xmark fa-lg"></i></p>
                     <h2 className='heading'>Registration</h2>
