@@ -30,7 +30,7 @@ const AddPermissionsModal = ({
   const closeRef = useRef(null);
   setMyRef(modalRef);
 
-  const validate = () => {
+  const validateChange = () => {
     let permError = "";
     let desError = "";
     let rolError = "";
@@ -48,13 +48,31 @@ const AddPermissionsModal = ({
     }
   };
 
+  const validate = () => {
+    let permError = "";
+    let desError = "";
+    let rolError = "";
+    permError = (!formData.permission) && "This field is Required";
+    desError = (!formData.description) && "This field is Required";
+    rolError = (!formData.roles) && "This field is Required";
+    setErrors({
+      permission: permError,
+      description: desError,
+      roles: rolError,
+    });
+
+    if (formData.roles && formData.description && formData.permission) {
+      setErrors(initialValues);
+    }
+  };
+
   useEffect(() => {
     loadData
       ? setFormData(loadData)
       : setFormData(initialValues);
   }, [loadData]);
 
-  useEffect(validate, [formData, touched])
+  useEffect(validateChange, [formData, touched])
 
   const handleSubmit = (e) => {
     validate()
