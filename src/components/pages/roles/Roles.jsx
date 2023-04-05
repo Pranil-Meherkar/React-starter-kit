@@ -5,6 +5,7 @@ import { ROLES_DATA } from "../../../services/apiEndpoints";
 import publicRequest from "../../../services/publicRequest";
 import ConfirmDeleteModal from './../../shared/ConfirmDeleteModal';
 import Pagination from './../../shared/Pagination';
+import Spinner from './../../shared/Spinner/Spinner';
 
 const Roles = () => {
     const [currentPage, setCurrentPage] = useState(1)
@@ -58,7 +59,7 @@ const Roles = () => {
                     </thead>
                     <tbody className="roles-table-body">
                         {
-                            currentPageData && currentPageData.map(item => {
+                            currentPageData ? (currentPageData.map(item => {
                                 return (
                                     <tr key={item.id} className="roles-table-row">
                                         <td>{item?.role}</td>
@@ -85,7 +86,7 @@ const Roles = () => {
                                         </td>
                                     </tr>
                                 )
-                            })
+                            })) : <tr style={{ width: "100%", display: "flex", justifyContent:"center"}}><Spinner/></tr>
                         }
                     </tbody>
 

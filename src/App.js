@@ -18,7 +18,6 @@ const Permissions = lazy(() => import("./components/pages/permissions/Permission
 const Profiles = lazy(() => import("./components/pages/profiles/Profiles"))
 const Settings = lazy(() => import("./components/pages/settings/Settings"))
 const BulkUpload = lazy(() => import("./components/pages/bulkupload/BulkUpload"))
-const Products = lazy(() => import("./components/pages/products/Products"))
 
 
 const App = () => {
@@ -49,7 +48,6 @@ const App = () => {
                 <Route path="/profiles" element={<PrivateRoute token={token} component={Profiles} />} />
                 <Route path="/settings" element={<PrivateRoute token={token} component={Settings} />} />
                 <Route path="/bulk-upload" element={<PrivateRoute token={token} component={BulkUpload} />} />
-                <Route path="/products" element={<PrivateRoute token={token} component={Products} />} />
                 <Route path='*' element={<Error />} />
               </Route>
               {/* <Route> */}
