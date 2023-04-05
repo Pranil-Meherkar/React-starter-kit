@@ -26,7 +26,7 @@ html {
 
 .sidebar {
   text-align: left;
-  display: grid;
+  /* display: grid; */
   width: 20vw;
   transition: width 0.3s;
   color: #3c3d3e;

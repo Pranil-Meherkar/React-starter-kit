@@ -130,11 +130,6 @@
       "role": "ADMIN",
       "description": "administrator",
       "id": 6
-    },
-    {
-      "role": "USER",
-      "description": "user",
-      "id": 7
     }
   ],
   "permissions": [
@@ -143,6 +138,56 @@
       "description": "change the title",
       "roles": "ADMIN",
       "id": 4
+    }
+  ],
+  "posts": [
+    {
+      "post": "hello",
+      "id": 1
+    },
+    {
+      "post": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+      "id": 2
+    },
+    {
+      "post": "aditya bharat Titame",
+      "id": 3
+    },
+    {
+      "post": "aditya",
+      "id": 4
+    },
+    {
+      "post": "qwerttyy",
+      "id": 5
+    },
+    {
+      "post": "qeqeqeq",
+      "id": 6
+    },
+    {
+      "post": "hello after setting",
+      "id": 7
+    },
+    {
+      "post": "hello everyone",
+      "id": 8
+    },
+    {
+      "post": "gswuzfywfzfwzw",
+      "id": 9
+    },
+    {
+      "post": "Raigad nagar akole",
+      "id": 10
+    },
+    {
+      "post": "Aditya Bharat Titame",
+      "id": 11
+    },
+    {
+      "post": "Namaskar",
+      "id": 12
     }
   ]
 }
