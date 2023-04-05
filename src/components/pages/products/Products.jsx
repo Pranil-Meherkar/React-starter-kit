@@ -11,6 +11,7 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ReactHTMLTableToExcel from "react-html-table-to-excel";
 import { deleteRequest, get, post, put } from "../../../services/publicRequest";
 import { PRODUCT } from "../../../services/apiEndpoints";
+import {toast} from "react-toastify"
 
 const initialValue = { name: "", karat: "", weight: "", price: "", image: "" };
 function Home() {
@@ -42,7 +43,7 @@ function Home() {
     if (formData.id) {
       put(PRODUCT, formData.id, formData)
         .then((resp) => {
-          alert("product is updated");
+          toast.success("Product updated successfully")
           handleClose();
           getUsers();
         });
@@ -53,7 +54,7 @@ function Home() {
 
           handleClose();
           getUsers();
-          alert("Product added successfully");
+          toast.success("Product added succesfully")
         });
     }
   };
@@ -65,7 +66,10 @@ function Home() {
     );
     if (confirm) {
       deleteRequest(PRODUCT, id)
-        .then((resp) => getUsers());
+        .then((resp) =>{ 
+          getUsers()
+          toast.success("Product deleted successfully")
+        });
     }
   };
   const handleUpdate = (data) => {

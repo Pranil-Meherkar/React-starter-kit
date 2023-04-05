@@ -150,7 +150,7 @@
       "name": "payal",
       "karat": "22",
       "weight": "22",
-      "price": "222",
+      "price": "2222",
       "image": false,
       "id": 44
     },
@@ -161,22 +161,6 @@
       "price": "500000",
       "image": "",
       "id": 45
-    },
-    {
-      "name": "test67",
-      "karat": "33",
-      "weight": "33",
-      "price": "44",
-      "image": "",
-      "id": 66
-    },
-    {
-      "name": "ttt",
-      "karat": "33",
-      "weight": "12",
-      "price": "12",
-      "image": "",
-      "id": 67
     },
     {
       "name": "payal2",
@@ -369,6 +353,14 @@
       "price": "222",
       "image": "",
       "id": 96
+    },
+    {
+      "name": "Pranil",
+      "karat": "23",
+      "weight": "232",
+      "price": "2323",
+      "image": false,
+      "id": 97
     }
   ]
 }
