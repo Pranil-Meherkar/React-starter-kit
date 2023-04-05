@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import FormikControl from '../formikcontrols/FormikControl'
@@ -12,9 +12,11 @@ import { useNavigate } from 'react-router'
 import { toast } from 'react-toastify'
 import { GOOGLE_API_URL, USERS } from '../../services/apiEndpoints'
 import { get } from '../../services/publicRequest'
+import ForgetPass from './ForgetPass'
 
-const LoginForm = ({ openLogin, closeModal, openRegi, setIsLogin, setIsRegister, setToken }) => {
-
+const LoginForm = ({ openLogin, closeModal, openRegi, setIsLogin, setIsRegister }) => {
+    const [openForget, setOpenForget] = useState(false)
+    
     const navigate = useNavigate()
 
     const login = useGoogleLogin({
@@ -44,7 +46,7 @@ const LoginForm = ({ openLogin, closeModal, openRegi, setIsLogin, setIsRegister,
 
     });
 
-    if (!openLogin) return null
+    
 
 
     const initialValues = {
@@ -87,6 +89,22 @@ const LoginForm = ({ openLogin, closeModal, openRegi, setIsLogin, setIsRegister,
             })
 
     }
+    const handleOpen = ()=>{
+        
+        setOpenForget(true)
+        
+    }
+    
+    
+    // useEffect(()=>{
+    //     if(openForget){
+    //         closeModal()
+    //     }
+        
+    // },[openForget])
+
+
+    if (!openLogin) return null
 
     return ReactDOM.createPortal(
         <>
@@ -117,8 +135,12 @@ const LoginForm = ({ openLogin, closeModal, openRegi, setIsLogin, setIsRegister,
                                         placeholder='Enter Your Password'
                                         name='password'
                                     />
+                                    
                                     <div className='login-div'>
                                         <Button type='submit' variant="contained" className='mui-login-btn'>Login</Button><br /></div>
+                                        <div onClick={handleOpen} className='forget-pass'>Forget Password ?</div>
+                                        <ForgetPass openForget={openForget} closeModal={()=>setOpenForget(false)}
+                                        openRegi={openRegi}/>
                                     <div className='already'><div>Don't have an account?</div><div onClick={openRegi} style={{ color: 'blue', cursor: 'pointer' }}>Register</div></div>
                                 </Form>
                             }
