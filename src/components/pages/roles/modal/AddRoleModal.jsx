@@ -40,6 +40,21 @@ const AddRoleModal = ({getRolesData, setMyRef,loadData,setLoadValues}) => {
         }
     }
 
+    const validate = () => {
+      let roleError = ""
+      let desError = ""
+      roleError = (!formData.role) && "This field is Required"
+      desError = (!formData.description) && "This field is Required"
+        setErrors({
+          role: roleError,
+          description: desError
+        })
+
+        if(formData.role && formData.description){
+            setErrors(initialValues)
+        }
+    }
+
     useEffect(()=> {
         loadData ? setFormData(loadData): setFormData(initialValues)
     },[loadData])
@@ -50,7 +65,7 @@ const AddRoleModal = ({getRolesData, setMyRef,loadData,setLoadValues}) => {
 
 
     const handleSubmit = (e) => {
-        validateChange()
+        validate()
         e.preventDefault()
         if(!Object.values(formData).join("").length) return false
 
