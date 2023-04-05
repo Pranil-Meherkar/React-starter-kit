@@ -1,7 +1,7 @@
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
-import FormikControl from '../formikcontrols/FormikControl'
-import './Formik.css'
+import FormikControl from '../../formikcontrols/FormikControl'
+import './RegistrationForm.css'
 import ReactDOM from 'react-dom'
 import { Button } from '@mui/material'
 import { useGoogleLogin } from '@react-oauth/google';
@@ -10,9 +10,9 @@ import axios from 'axios'
 import { useNavigate } from 'react-router'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
-import { GOOGLE_API_URL, USERS } from '../../services/apiEndpoints'
-import { get, post } from '../../services/publicRequest'
-import { PHONEREGEX,EMAILREGEX } from '../../utils/regEx'
+import { GOOGLE_API_URL, USERS } from '../../../services/apiEndpoints'
+import { get, post } from '../../../services/publicRequest'
+import { PHONEREGEX,EMAILREGEX } from '../../../utils/regEx'
 // import Toaster from './shared/Toaster/Toaster'
 
 const RegistrationForm = ({ setToken ,openRegi, closeModal, openLogin, setIsRegister,setIsLogin }) => {
@@ -135,10 +135,12 @@ const RegistrationForm = ({ setToken ,openRegi, closeModal, openLogin, setIsRegi
 
     return ReactDOM.createPortal(
         <>
-            <div className='main-form'>
-                <div className='form-card'>
-                    <p onClick={closeModal} className='close-btn'><i className="fa-solid fa-xmark fa-lg"></i></p>
-                    <h2 className='heading'>Registration</h2>
+            <div className='main-regi-form'>
+            <div className='heading'><h2 >Registration</h2></div>
+            <p onClick={closeModal} className='close-btn'><i className="fa-solid fa-xmark fa-lg"></i></p>
+                <div className='regi-form-card'>
+                    
+                    
                     <Formik
                         initialValues={initialValues}
                         validationSchema={validationSchema}
@@ -182,7 +184,7 @@ const RegistrationForm = ({ setToken ,openRegi, closeModal, openLogin, setIsRegi
                                         name='terms'
                                         options={checkboxOptions}
                                     />
-                                    <div className='modal-btn'>
+                                    <div className='regi-btn'>
                                         <Button type='submit' variant="contained" className='mui-btn'>Register</Button><br /></div>
 
                                     <div className='already'><div >Already have an account?</div><div onClick={openLogin} style={{ color: 'blue', cursor: 'pointer' }}>Login</div></div>
@@ -191,7 +193,7 @@ const RegistrationForm = ({ setToken ,openRegi, closeModal, openLogin, setIsRegi
                         }
 
                     </Formik>
-                    <div>------------------OR------------------</div>
+                    <div><hr/>OR<hr/></div>
 
                     <GoogleButton onClick={login} className="google-btn" />
 
