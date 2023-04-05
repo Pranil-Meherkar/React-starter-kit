@@ -146,10 +146,10 @@ function Home() {
         }}
       >
         <p className="products-heading">Products Data</p>
-        <div style={{width: "40%",display: "flex", justifyContent:"space-around"}}>
+        <div style={{display: "flex",gap: "10px" , justifyContent:"space-around"}}>
           <Button
             size="small"
-            style={{ marginLeft: "25px", height: "40px"}}
+            style={{ height: "8.1vh"}}
             className="btn-addproduct mb-2"
             onClick={handleClickOpen}
             variant="outlined"

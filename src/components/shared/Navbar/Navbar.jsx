@@ -14,7 +14,7 @@ const Navbar = ({ username, openModal, setOpenModal}) => {
     >
       
       <div className="collapse navbar-collapse" id="navbarNav" style={{display: "flex", justifyContent:"right"}}>
-        <ul className="navbar-nav ml-auto">
+        <ul className="navbar-nav">
           <li style={{paddingRight: "20px", fontSize:".84rem", paddingTop:"5px"}}>
             <p>Hi {username} !</p>
           </li>
