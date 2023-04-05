@@ -56,6 +56,10 @@ html {
   padding-bottom: 2.5rem;
   margin: 0;
   transition: all 0.2s;
+  padding-left: 2vw;
+}
+
+.sidebar__ul--2.small {
   padding-left: 32px;
 }
 .sidebar__ul--2::-webkit-scrollbar {
@@ -86,7 +90,7 @@ html {
 .sidebar__ul--li-head-span {
   display: grid;
   justify-self: end;
-  margin-left: 150px;
+  margin-left: 12vw;
   cursor: pointer;
 }
 
@@ -129,7 +133,7 @@ html {
   align-items: center;
   grid-auto-flow: column;
   justify-content: start;
-  gap: 1.56rem;
+  gap: 0.5rem;
   color: #3c3d3e;
   text-decoration: none;
   font-size: 0.75rem;

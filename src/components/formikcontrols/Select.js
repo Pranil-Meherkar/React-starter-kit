@@ -5,7 +5,7 @@ import TextError from '../shared/TextError'
 const Select = (props) => {
     const { name, label, options, ...rest } = props
     return (
-        <div className='form-control'>
+        <div className='input-control'>
             <label htmlFor={name}>{label}</label>
             <Field
                 as='select'
