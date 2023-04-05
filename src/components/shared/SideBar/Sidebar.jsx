@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { NavLink } from "react-router-dom";
 import Menu from "../../../routes/routesJSON/Menu.json"
 import "./Sidebar.css";
@@ -15,6 +15,7 @@ import WebIcon from '@mui/icons-material/Web';
 const Sidebar = (props) => {
 
   const [showSubMenuItems, setShowSubMenuItems] = useState(Menu.map(item => false));
+  const [windowSmall, setWindowSmall] = useState(false);
 
   const iconComponents = {
     "Dashboard": <HomeIcon fontSize="small"/>,
@@ -30,6 +31,30 @@ const Sidebar = (props) => {
     "Pages": <WebIcon fontSize="medium" />,
   }
   const { hideSidebar, handleHideSidebar } = props;
+
+  // useEffect(() => {
+  //   if(window.innerWidth <= 1200){
+  //     !hideSidebar && handleHideSidebar()
+  //   }
+  // }, [])
+
+  const setSidebarSmall = () => {
+    if(window.innerWidth <= 1200){
+          !hideSidebar && handleHideSidebar()
+    }
+    if(window.innerWidth <= 700){
+      setWindowSmall(true)
+    }else{
+      setWindowSmall(false)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', setSidebarSmall);
+    return () => window.removeEventListener('resize', setSidebarSmall);
+  }, [])
+
+  console.log("windoww", windowSmall)
 
   return (
     <div className={`sidebar ${hideSidebar ? "small" : null}`}>
@@ -54,7 +79,7 @@ const Sidebar = (props) => {
               <div>
                 <MenuIcon
                   onClick={handleHideSidebar}
-                  style={{ marginTop: "5vh" }}
+                  style={{ marginTop: "5vh" , pointerEvents: windowSmall && "none"}}
                 />
               </div>
             ) : (
@@ -68,7 +93,7 @@ const Sidebar = (props) => {
           </span>
         </li>
       </ul>
-      <ul className="sidebar__ul sidebar__ul--2">
+      <ul className={`sidebar__ul sidebar__ul--2 ${hideSidebar ? "small" : null}`}>
         {Menu.map((header) => (
           <div key={header.id} >
             {header.masterName !== "home" ? (
