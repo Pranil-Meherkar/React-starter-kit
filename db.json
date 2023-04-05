@@ -196,10 +196,10 @@
     },
     {
       "name": "y",
-      "karat": "33",
+      "karat": "23",
       "weight": "33",
       "price": "33",
-      "image": "./hearing.png",
+      "image": false,
       "id": 76
     },
     {
@@ -207,7 +207,7 @@
       "karat": "22",
       "weight": "22",
       "price": "22",
-      "image": "./ring copy.jpg",
+      "image": "",
       "id": 77
     },
     {

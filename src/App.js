@@ -7,9 +7,9 @@ import { GoogleOAuthProvider } from '@react-oauth/google'
 import MainHeader from './components/layout/MainHeader'
 import Error from './components/pages/ErrorPage/Error'
 import TestPage from './components/pages/TestPage'
-import Loader from './components/shared/Loader';
 import PrivateRoute from './routes/PrivateRoute';
 import PublicRoute from './routes/PublicRoute';
+import Spinner from './components/shared/Spinner/Spinner';
 
 const Dashboard = lazy(() => import("./components/pages/dashboard/Dashboard"))
 const Roles = lazy(() => import("./components/pages/roles/Roles"))
@@ -37,7 +37,7 @@ const App = () => {
     <GoogleOAuthProvider clientId="247734515468-1caral148vs24evoub2at4hb7ncugtb4.apps.googleusercontent.com">
       <ThemeProvider theme={theme}>
         <div>
-          <Suspense fallback={<Loader />}>
+          <Suspense fallback={<Spinner/>}>
             <Routes>
               <Route
                 element={<HomeLayout setToken={setToken} />}

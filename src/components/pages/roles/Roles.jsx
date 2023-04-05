@@ -86,7 +86,7 @@ const Roles = () => {
                                         </td>
                                     </tr>
                                 )
-                            })) : <tr style={{ width: "100%", display: "flex", justifyContent:"center"}}><Spinner/></tr>
+                            })) : <tr><td></td><td><Spinner/></td><td></td></tr>
                         }
                     </tbody>
 

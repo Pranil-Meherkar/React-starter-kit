@@ -100,7 +100,7 @@ const Permissions = () => {
                                 )
                             })): <tr className="roles-table-row"><td></td><td></td><td style={{textAlign:"left", color:"red"}}>No Data</td><td></td></tr>)
                             :
-                            <tr style={{ width: "100%", display: "flex", justifyContent:"center"}}><Spinner/></tr>
+                            <tr><td></td><td><Spinner/></td><td></td><td></td></tr>
                         }
                     </tbody>
 
