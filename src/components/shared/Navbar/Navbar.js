@@ -5,8 +5,8 @@ import { Button } from '@mui/material'
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 
-const RegistrationForm = React.lazy(() => import('../../forms/RegistrationForm'));
-const LoginForm = React.lazy(()=>import('./../../forms/LoginForm'))
+const RegistrationForm = React.lazy(() => import('../../../components/forms/registration/RegistrationForm'));
+const LoginForm = React.lazy(()=>import('./../../../components/forms/login/LoginForm'))
 
 const Navbar = () => {
   const [openLogin, setOpenLogin] = useState(false)

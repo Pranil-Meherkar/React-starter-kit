@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
-import FormikControl from '../formikcontrols/FormikControl'
-import './Formik.css'
+import FormikControl from '../../formikcontrols/FormikControl'
+import './LoginForm.css'
 import ReactDOM from 'react-dom'
 import { Button } from '@mui/material'
 import { useGoogleLogin } from '@react-oauth/google'
@@ -10,9 +10,10 @@ import axios from 'axios'
 import GoogleButton from 'react-google-button'
 import { useNavigate } from 'react-router'
 import { toast } from 'react-toastify'
-import { GOOGLE_API_URL, USERS } from '../../services/apiEndpoints'
-import { get } from '../../services/publicRequest'
-import ForgetPass from './forgetpwd/ForgetPass'
+import { GOOGLE_API_URL, USERS } from '../../../services/apiEndpoints'
+import { get } from '../../../services/publicRequest'
+import ForgetPass from '../forgetpwd/ForgetPass'
+import { EMAILREGEX } from '../../../utils/regEx'
 
 const LoginForm = ({ openLogin, closeModal, openRegi, setIsLogin, setIsRegister }) => {
     const [openForget, setOpenForget] = useState(false)
@@ -53,7 +54,7 @@ const LoginForm = ({ openLogin, closeModal, openRegi, setIsLogin, setIsRegister 
     }
 
     const validationSchema = Yup.object({
-        email: Yup.string().email('Invalid email Format').required('This field is Required'),
+        email: Yup.string().required('This field is Required').matches(EMAILREGEX, 'Email ID is not valid'),
         password: Yup.string().required('This Field is required')
     })
 
@@ -104,10 +105,11 @@ const LoginForm = ({ openLogin, closeModal, openRegi, setIsLogin, setIsRegister 
 
     return ReactDOM.createPortal(
         <>
-            <div className='main-form'>
-                <div className='form-card'>
-                    <p onClick={closeModal} className='close-btn'><i className="fa-solid fa-xmark fa-lg"></i></p>
+            <div className='main-login-form'>
+            <p onClick={closeModal} className='close-btn'><i className="fa-solid fa-xmark fa-lg"></i></p>
                     <h2 style={{ marginLeft: '140px' }}>Login</h2>
+                <div className='login-form-card'>
+                    
                     <Formik
                         initialValues={initialValues}
                         validationSchema={validationSchema}
