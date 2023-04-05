@@ -6,6 +6,7 @@ import TextError from '../shared/TextError/TextError'
 const CheckboxBtn = (props) => {
     const { name, label, options, ...rest } = props
     return (
+        <>
         <div className='form-radio'>
             {/* <label htmlFor={name}>{label}</label><br/> */}
             <Field name={name}{...rest}>
@@ -37,8 +38,10 @@ const CheckboxBtn = (props) => {
                     }
                 }
             </Field>
-            <ErrorMessage name={name} component={TextError}/>
+           
         </div>
+        <ErrorMessage name={name} component={TextError}/>
+        </>
     )
 }
 

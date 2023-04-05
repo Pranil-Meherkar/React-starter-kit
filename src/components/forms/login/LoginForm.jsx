@@ -111,7 +111,7 @@ const LoginForm = ({ openLogin,setToken, closeModal, openRegi, setIsLogin, setIs
         <>
             <div className='main-login-form'>
             <p onClick={closeModal} className='close-btn'><i className="fa-solid fa-xmark fa-lg"></i></p>
-                    <h2 style={{ marginLeft: '140px' }}>Login</h2>
+                    <div><h2 style={{ marginLeft: '140px' }}>Login</h2></div>
                 <div className='login-form-card'>
                     
                     <Formik

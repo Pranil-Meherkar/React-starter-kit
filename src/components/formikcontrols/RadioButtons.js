@@ -5,6 +5,7 @@ import TextError from '../shared/TextError/TextError'
 const RadioButtons = (props) => {
     const { name, label, options,icon, ...rest } = props
     return (
+        <>
         <div>
             <label htmlFor={name}>{icon}{label}</label><br/>
             <div className='form-radio-div'>
@@ -29,9 +30,11 @@ const RadioButtons = (props) => {
                 }
             </Field>
             </div>
-            <ErrorMessage name={name} component={TextError}/>
+            
             
         </div>
+        <ErrorMessage name={name} component={TextError}/>
+        </>
     )
 }
 

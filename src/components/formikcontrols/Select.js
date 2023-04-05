@@ -5,6 +5,7 @@ import TextError from '../shared/TextError/TextError'
 const Select = (props) => {
     const { name, label, options, ...rest } = props
     return (
+        <>
         <div className='input-control'>
             <label htmlFor={name}>{label}</label>
             <Field
@@ -18,8 +19,10 @@ const Select = (props) => {
                     options.map((option,index)=><option key={index} value={option.value}>{option.value}</option>)
                 }
             </Field>
-            <ErrorMessage name={name} component={TextError}/>
+           
         </div>
+        <ErrorMessage name={name} component={TextError}/>
+        </>
     )
 }
 
