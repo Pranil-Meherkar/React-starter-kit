@@ -147,22 +147,6 @@
   ],
   "product": [
     {
-      "name": "payal",
-      "karat": "22",
-      "weight": "22",
-      "price": "2222",
-      "image": false,
-      "id": 44
-    },
-    {
-      "name": "kamarpatta",
-      "karat": "12",
-      "weight": "300",
-      "price": "500000",
-      "image": "",
-      "id": 45
-    },
-    {
       "name": "payal2",
       "karat": "22",
       "weight": "22",

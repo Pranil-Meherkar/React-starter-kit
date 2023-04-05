@@ -9,9 +9,10 @@ import Button from "@mui/material/Button";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ReactHTMLTableToExcel from "react-html-table-to-excel";
+import ConfirmDeleteModal from "../../shared/ConfirmDeleteModal";
 import { deleteRequest, get, post, put } from "../../../services/publicRequest";
 import { PRODUCT } from "../../../services/apiEndpoints";
-import {toast} from "react-toastify"
+import { toast } from "react-toastify";
 
 const initialValue = { name: "", karat: "", weight: "", price: "", image: "" };
 function Home() {
@@ -30,8 +31,7 @@ function Home() {
 
   const getUsers = () => {
     setLoading(true);
-    get(PRODUCT)
-      .then((resp) => setTableData(resp.data));
+    get(PRODUCT).then((resp) => setTableData(resp.data));
   };
 
   const indexOfLastProduct = currentPage * productsPerPage;
@@ -41,37 +41,43 @@ function Home() {
 
   const handleFormSubmit = () => {
     if (formData.id) {
-      put(PRODUCT, formData.id, formData)
-        .then((resp) => {
-          toast.success("Product updated successfully")
-          handleClose();
-          getUsers();
-        });
+      put(PRODUCT, formData.id, formData).then((resp) => {
+        toast.success("Product updated successfully");
+        handleClose();
+        getUsers();
+      });
     } else {
-      post(PRODUCT, formData)
-        .then((resp) => {
-          console.log("resp" + JSON.stringify(resp.data.name.length));
+      post(PRODUCT, formData).then((resp) => {
+        console.log("resp" + JSON.stringify(resp.data.name.length));
 
-          handleClose();
-          getUsers();
-          toast.success("Product added succesfully")
-        });
+        handleClose();
+        getUsers();
+        toast.success("Product added succesfully");
+      });
     }
   };
 
-  const handleDelete = (id) => {
-    const confirm = window.confirm(
-      "Are you sure you want to delete this row",
-      id
-    );
-    if (confirm) {
-      deleteRequest(PRODUCT, id)
-        .then((resp) =>{ 
-          getUsers()
-          toast.success("Product deleted successfully")
-        });
-    }
+  // const handleDelete = (id) => {
+  //   const confirm = window.confirm(
+  //     "Are you sure you want to delete this row",
+  //     id
+  //   );
+  //   if (confirm) {
+  //     deleteRequest(PRODUCT, id)
+  //       .then((resp) =>{
+  //         getUsers()
+  //         toast.success("Product deleted successfully")
+  //       });
+  //   }
+  // };
+
+  const deleteProduct = (id) => {
+    deleteRequest(PRODUCT, id).then((resp) => {
+      getUsers();
+      toast.success("Product deleted successfully");
+    });
   };
+
   const handleUpdate = (data) => {
     setFormData(data);
     handleClickOpen();
@@ -146,14 +152,20 @@ function Home() {
           justifyContent: "space-between",
           padding: "7vh 5vw",
           borderRadius: "5px",
-          fontSize: "2rem"
+          fontSize: "2rem",
         }}
       >
         <p className="products-heading">Products Data</p>
-        <div style={{display: "flex",gap: "10px" , justifyContent:"space-around"}}>
+        <div
+          style={{
+            display: "flex",
+            gap: "10px",
+            justifyContent: "space-around",
+          }}
+        >
           <Button
             size="small"
-            style={{ height: "8.1vh"}}
+            style={{ height: "8.1vh" }}
             className="btn-addproduct mb-2"
             onClick={handleClickOpen}
             variant="outlined"
@@ -234,18 +246,19 @@ function Home() {
                       />
                     </td>
                     <td>
-                      <DeleteIcon
-                        onClick={() => handleDelete(item.id)}
-                        size="small"
-                        color="error"
-                      />
+                      <div style={{display:"flex", justifyContent:"center"}}>
+                        <ConfirmDeleteModal
+                          id={item.id}
+                          handleDelete={deleteProduct}
+                        />
 
-                      <EditIcon
-                        className="editicon"
-                        onClick={() => handleUpdate(item)}
-                        size="small"
-                        color="primary"
-                      />
+                        <EditIcon
+                          className="editicon"
+                          onClick={() => handleUpdate(item)}
+                          size="small"
+                          color="primary"
+                        />
+                      </div>
                     </td>
                   </>
                 </tr>
