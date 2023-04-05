@@ -34,10 +34,10 @@ const ChangePwd = ({openChangePwd,closeModal}) => {
                 const user = resp.data.find((item) => item.email === values.email)
                 if(!user) toast.warn('Please Enter Correct Email ID',{autoClose:2000})
                 console.log("Getting user",user)
-                    if (values.oldPassword==user.password) {
+                    if (values.oldPassword===user.password) {
                         if(values.oldPassword===values.newPassword)
                         {
-                            toast.warn('Old and new Password must be different')
+                            toast.warn('Old and new Password must be different',{autoClose:2000})
                         }
                         else{
                         put(USERS,user.id,{...user,password:values.newPassword,confirmPassword:values.newPassword})
