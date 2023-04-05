@@ -1,7 +1,7 @@
 import { Checkbox } from '@mui/material'
 import { ErrorMessage, Field } from 'formik'
 import React from 'react'
-import TextError from '../shared/TextError'
+import TextError from '../shared/TextError/TextError'
 
 const CheckboxBtn = (props) => {
     const { name, label, options, ...rest } = props

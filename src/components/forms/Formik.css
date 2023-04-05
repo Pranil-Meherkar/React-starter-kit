@@ -9,11 +9,7 @@ label svg{
     padding-left: 15px;
 }
 
-.error{
-    font-size: 12px;
-    color: red;
-    margin-left: 30px;
-}
+
 .main-form{
     position: fixed;
     left: 50%;
