@@ -11,13 +11,13 @@
     background-color: white;
     /* width: 350px; */
     /* height: 590px; */
-    max-height: 450px;
+    /* max-height: 450px; */
 }
 .regi-form-card{
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-height: 450px;
+    max-height: 400px;
     overflow-y: scroll;
     margin: 1rem;
 }

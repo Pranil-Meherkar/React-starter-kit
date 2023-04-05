@@ -51,9 +51,9 @@ label svg{
     margin-top: 21px;
     margin-right: 10px;
 }
-.input-field{
+/* .input-field{
     width: 250px;
-}
+} */
 
 ::-webkit-scrollbar{
     width: 0.4vw;
