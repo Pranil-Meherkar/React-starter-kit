@@ -9,6 +9,8 @@ import publicRequest from "../../../services/publicRequest";
 import { toast } from "react-toastify";
 import { PERMISSSIONS, ROLES_DATA } from "../../../services/apiEndpoints";
 import ConfirmDeleteModal from "../../shared/ConfirmDeleteModal";
+import Spinner from "../../shared/Spinner/Spinner";
+
 
 const Permissions = () => {
     const [currentPage, setCurrentPage] = useState(1)
@@ -71,7 +73,7 @@ const Permissions = () => {
                     </thead>
                     <tbody className="roles-table-body">
                         {
-                            currentPageData && (currentPageData.length ? (currentPageData.map(item => {
+                            currentPageData ? (currentPageData.length ? (currentPageData.map(item => {
                                 return (
                                     <tr key={item.id} className="roles-table-row">
                                         <td>{item?.permission}</td>
@@ -97,6 +99,8 @@ const Permissions = () => {
                                     </tr>
                                 )
                             })): <tr className="roles-table-row"><td></td><td></td><td style={{textAlign:"left", color:"red"}}>No Data</td><td></td></tr>)
+                            :
+                            <tr style={{ width: "100%", display: "flex", justifyContent:"center"}}><Spinner/></tr>
                         }
                     </tbody>
 
