@@ -11,9 +11,11 @@
     background-color: white;
     /* width: 350px; */
     /* height: 590px; */
-    max-height: 495px; 
 }
 .login-form-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     max-height: 450px;
     overflow-y: scroll;
     margin: 1rem;
@@ -52,9 +54,7 @@ label svg{
 .input-field{
     width: 250px;
 }
-.input-control{
-    margin-left: 30px;
-}
+
 ::-webkit-scrollbar{
     width: 0.4vw;
     border-radius: 10px;

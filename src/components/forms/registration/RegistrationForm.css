@@ -11,7 +11,7 @@
     background-color: white;
     /* width: 350px; */
     /* height: 590px; */
-    
+    max-height: 450px;
 }
 .regi-form-card{
     display: flex;
@@ -20,6 +20,9 @@
     max-height: 450px;
     overflow-y: scroll;
     margin: 1rem;
+}
+.input-field{
+    width: 250px;
 }
 .close-btn{
     cursor: pointer;
@@ -34,10 +37,13 @@
  color: red;
 }
 .mui-btn{
-    width: 100%;
+    width: 90%;
     height: 40px;
 }
-
+.regi-btn{
+    display: flex;
+    justify-content: center;
+}
 .already{
     display: flex;
     justify-content: center;
@@ -45,15 +51,8 @@
 }
 .checkbox{
     margin-top: 10px;
-    margin-left: 18px;
 }
 
-
-.regi-btn{
-    width: 293px;
-    display: flex;
-    justify-content: center;
-}
 .heading{
     display: flex;
     justify-content: center;
@@ -83,9 +82,11 @@ label svg{
     margin-top: 21px;
     margin-right: 10px;
 }
-.input-field{
-    width: 250px;
-}
+
 .form-radio-div{
     padding-left: 15px;
+}
+.input-control{
+    display: flex;
+    justify-content: center;
 }

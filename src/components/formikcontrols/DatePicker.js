@@ -7,6 +7,7 @@ import TextError from '../shared/TextError/TextError'
 const DatePicker = (props) => {
     const { label, name, ...rest } = props
     return (
+        <>
         <div className='input-control'>
             <label htmlFor={name}>{label}</label>
             <Field name={name}>
@@ -24,8 +25,10 @@ const DatePicker = (props) => {
                     }
                 }
             </Field>
-            <ErrorMessage name={name} component={TextError}/>
+            
         </div>
+        <ErrorMessage name={name} component={TextError}/>
+        </>
     )
 }
 
