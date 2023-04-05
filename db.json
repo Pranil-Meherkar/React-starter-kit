@@ -1,19 +1,9 @@
 {
   "users": [
     {
-      "email": "aditya@gmail.com",
-      "password": "12345",
-      "confirmPassword": "12345",
-      "mobNo": "1234567890",
-      "terms": [
-        "accepted"
-      ],
-      "id": 1
-    },
-    {
       "email": "p@gmail.com",
-      "password": "12345",
-      "confirmPassword": "12345",
+      "password": "123456789",
+      "confirmPassword": "123456789",
       "mobNo": "1234567890",
       "terms": [
         "accepted"
@@ -104,6 +94,16 @@
         "accepted"
       ],
       "id": 10
+    },
+    {
+      "email": "aditya@gmail.com",
+      "password": "12345678",
+      "confirmPassword": "12345678",
+      "mobNo": "1234567890",
+      "terms": [
+        "accepted"
+      ],
+      "id": 11
     }
   ],
   "test": [
