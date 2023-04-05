@@ -1,6 +1,6 @@
 import React from 'react'
 import { Field, ErrorMessage } from 'formik'
-import TextError from '../shared/TextError'
+import TextError from '../shared/TextError/TextError'
 import { TextField } from '@mui/material'
 
 const Input = (props) => {
