@@ -33,7 +33,8 @@ const FeedPage = () => {
 
     return (
         <>
-            <Box width='500px' marginLeft={20}>
+        <div style={{display:'flex' ,justifyContent:'center'}}>
+            <Box width='500px'>
                 <Card>
                     <CardContent>
                         <Button>Post</Button>
@@ -51,10 +52,12 @@ const FeedPage = () => {
                         <Button variant="contained" onClick={createPost}>Post</Button>
                     </CardContent>
                 </Card>
-            </Box><br />
+            </Box>
+            </div><br />
+            <hr/>
             <br />
-
-            <Stack spacing={2} marginLeft={20}>
+        <div style={{display:'flex' ,justifyContent:'center'}}>
+            <Stack spacing={2} >
                 {
                     allPosts.map((item) => (
                         <Box width='500px' key={item.id}>
@@ -73,6 +76,7 @@ const FeedPage = () => {
                     ))
                 }
             </Stack>
+            </div>
         </>
     )
 }
