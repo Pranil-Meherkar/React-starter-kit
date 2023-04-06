@@ -1,0 +1,12 @@
+.poll-div{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+}
+.like-share{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1rem;
+}
