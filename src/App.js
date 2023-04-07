@@ -21,7 +21,7 @@ const BulkUpload = lazy(() => import("./components/pages/bulkupload/BulkUpload")
 
 
 const App = () => {
-  const font = "'Poppins', sans-serif";
+  const font = "'Montserrat', sans-serif";
   const theme = createTheme({
     typography: {
       fontFamily: font

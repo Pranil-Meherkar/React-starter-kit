@@ -6,6 +6,7 @@ import TextArea from './TextArea'
 import Checkbox from './CheckboxBtn'
 import DatePicker from './DatePicker'
 import Password from './Password'
+import FileUpload from './FileUpload'
 
 const FormikControl = (props) => {
     const { control, ...rest } = props
@@ -23,6 +24,8 @@ const FormikControl = (props) => {
         case 'date': return <DatePicker {...rest} />
 
         case 'password': return <Password {...rest} />
+
+        case 'file' : return <FileUpload {...rest}/>
 
         default: return null
     }

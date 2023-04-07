@@ -1,3 +1,7 @@
+.question-box{
+    display: flex;
+    justify-content: center;
+}
 .poll-div{
     margin-top: 1rem;
     display: flex;
@@ -9,4 +13,13 @@
     justify-content: space-around;
     align-items: center;
     margin-top: 1rem;
+}
+.error-msg{
+    font-size: 12px;
+    margin-left: 0px;
+    padding: 4px;
+    color: red;
+}
+.upload{
+    display: flex;
 }
