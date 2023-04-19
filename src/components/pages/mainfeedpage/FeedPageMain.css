@@ -1,5 +1,14 @@
-.inputRounded .MuiOutlinedInput-root {
+.inputRounded {
     border-radius: 50px;
+    width: 32rem;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    border-style: none;
+    background-color: #D2D2D2;
+    outline-style: none;
+}
+.inputRounded:focus{
+    background-color: white;
+    border: 1px solid #2D94C9;
 }
 
 .recent {

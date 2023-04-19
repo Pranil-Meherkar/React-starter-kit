@@ -11,6 +11,8 @@ import './FeedPageMain.css'
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
 import { POSTS } from '../../../services/apiEndpoints';
 import { get, post } from '../../../services/publicRequest';
+import Comment from '../../../assets/svg/Comment.svg'
+import Report from '../../../assets/svg/Report.svg'
 
 const FeedPageMain = () => {
     const [value, setValue] = useState('1');
@@ -51,7 +53,7 @@ const FeedPageMain = () => {
         console.log(postData)
         post(POSTS, postData)
             .then(resp => {
-                console.log(resp.data)
+                console.log("post created",resp.data)
                 setPostData({ ...postData, post: '' })
                 fetchPosts()
             })
@@ -75,7 +77,7 @@ const FeedPageMain = () => {
             <div className='main-feed'>
                 <Box
                     sx={{
-                        width: '700px',
+                        width: '70%',
                         borderRadius: '8px',
                         padding: '1rem',
                         boxShadow: '0px 4px 4px gray'
@@ -93,18 +95,15 @@ const FeedPageMain = () => {
                         <TabPanel value="1" sx={{ padding: '20px 0 0 0' }}>
                             <Box sx={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                                 <Avatar alt="Remy Sharp" src="https://www.hindubhagwan.com/Gallery/images/portfolio/full/small/lord_hanuman_angry_image.jpg" />
-                                <TextField
+                                <textarea
                                     variant="outlined"
-                                    label={`What's your question?`}
+                                    placeholder={`What's your question?`}
                                     multiline maxRows={5}
-
+                                    
                                     fullWidth
                                     value={postData.post}
                                     onChange={(e) => setPostData({ ...postData, post: e.target.value })}
-                                    sx={{
-
-                                        width: '502px',
-                                    }}
+                                    
                                     className="inputRounded"
                                 /></Box>
                             {/* {
@@ -118,11 +117,11 @@ const FeedPageMain = () => {
                         <br /> */}
                             <Box sx={{
                                 display: 'flex',
-                                justifyContent: 'flex-end',
+                                justifyContent: 'space-between',
                                 marginTop: '1.25rem',
-                                gap: '12rem'
+                                
                             }}>
-                                <Box sx={{ display: 'flex', gap: '1rem' }}>
+                                <Box sx={{ display: 'flex', gap: '1rem',marginLeft:'3rem' }}>
                                     <Button
                                         variant="outlined"
                                         component="label"
@@ -216,12 +215,12 @@ const FeedPageMain = () => {
                                 <Box className='group-details'><p>Ashok- Clarion Technology- Power BI</p></Box>
                                 <Box className='questions'>
                                     <p>Questions</p>
-                                    <div className='post-data'>{item.post}</div>
+                                    <div className='post-data'>{item.post.split('\n').join('\n<br/>')}</div>
                                 </Box>
                                 <Box className='footer'>
                                     <span>Like</span>
-                                    <span>Comment</span>
-                                    <span>Report</span>
+                                    <span><img src={Comment} alt='comment'/>Comment</span>
+                                    <span><img src={Report} alt='Report'/>Report</span>
                                 </Box>
                             </Box>
                         ))
